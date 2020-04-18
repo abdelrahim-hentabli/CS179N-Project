@@ -20,7 +20,14 @@
 ### I want to grab the latest build from master:
 1. Open a new terminal window and navigate to our repo.
 2. Switch to your branch with
-`git checkout your-branch-name`
+`git checkout your-branch-name`.
 3. Grab the latest changes with
-`git pull origin master`
-4. Open Unity. Push immediately to your branch with Unity by pressing the "Push" button.
+`git pull origin master`.
+4. Open Unity. Make sure your branch is seleced in the "Branches" tab. Push immediately to your branch by pressing the "Push" button.
+
+### A feature is fully tested/completed and I want to merge my branch with master:
+1. Open a new terminal window and navigate to our repo.
+2. Switch to master with
+`git checkout master`
+3. Merge your branch with `git merge your-branch-name`.
+4. Open Unity. Make sure master is seleced in the "Branches" tab. Push immediately to master by pressing the "Push" button.
