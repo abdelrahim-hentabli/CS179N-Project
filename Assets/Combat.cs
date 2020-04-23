@@ -9,24 +9,39 @@ public class Combat : MonoBehaviour
     public Transform attackPoint;
     public float attackRange = 0.50f;
     public LayerMask enemyLayers;
-
     public int attackDamage = 20;
-    public float hitRate = 2f;
+
+    //Range variables
+    public Animator shoot;
+    public Transform firePoint;
+    public GameObject boltPrefab;
+
+    //Makes sure player can't stunlock enemies to death that easily
+    public float attackRate = 2f;
     float nextAttack = 0f;
 
     // Update is called once per frame
     void Update()
     {
+        //Only register attacks after a certain amount of time has passed between attacks
         if (Time.time >= nextAttack)
         {
+            //Melee is left mouse click
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 Attack();
-                nextAttack = Time.time + 1f / hitRate;
+                nextAttack = Time.time + 1f / attackRate;
+            }
+            //Ranged is right mouse click
+            if (Input.GetKeyDown(KeyCode.Mouse1))
+            {
+                Shoot();
+                nextAttack = Time.time + 1f / attackRate;
             }
         }
     }
 
+    //Melee attack
     void Attack()
     {
         //Play sword animation
@@ -42,7 +57,17 @@ public class Combat : MonoBehaviour
             enemy.GetComponent<Enemy>().takeDamage(attackDamage);
         }
     }
+
+    //Crossbow attack
+    void Shoot()
+    {
+        //Play crossbow firing animation
+        shoot.SetTrigger("Shoot");
+        //Fire a bolt
+        Instantiate(boltPrefab, firePoint.position, firePoint.rotation);
+    }
     
+    //Only for melee, makes sure enemy is within range
     void OnDrawGizmosSelected()
     {
         if (attackPoint == null)
