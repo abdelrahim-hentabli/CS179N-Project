@@ -33,4 +33,3 @@
 4. Open Unity. Make sure master is seleced in the "Branches" tab. Push immediately to master by pressing the "Push" button.
 
 ### Hello, this is just a test message from Alex to see if I can push anything.
-### My bad, I meant to push this message into the README from my branch.
