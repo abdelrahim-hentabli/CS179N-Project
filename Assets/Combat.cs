@@ -7,7 +7,8 @@ public class Combat : MonoBehaviour
     //Melee variables
     public Animator attack;
     public Transform attackPoint;
-    public float attackRange = 0.50f;
+    public float attackRange;
+
     public LayerMask enemyLayers;
     public int attackDamage = 20;
 
@@ -29,7 +30,7 @@ public class Combat : MonoBehaviour
             //Melee is left mouse click
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                Attack();
+                playAnimation();
                 nextAttack = Time.time + 1f / attackRate;
             }
             //Ranged is right mouse click
@@ -41,14 +42,24 @@ public class Combat : MonoBehaviour
         }
     }
 
+    //Issue: Animation shows a windup, but typically the enemy would be shown as getting hit WHILE the player character winds up
+    //Solution: Play the animation first and delay everything else after it by a very short amount of time, just enough
+    //          for the animation to finish the windup part BEFORE swinging the sword, at which point it should register damage.
+    //Note: May cause issues where enemy takes damage after moving out of range of melee attack.
+    void playAnimation()
+    {
+        //Begin attack animation
+        attack.SetTrigger("Attack");
+        //Delay the mechanics of melee combat by 0.35 seconds
+        Invoke("Attack", 0.35f);
+    }
+
     //Melee attack
     void Attack()
     {
-        //Play sword animation
-        attack.SetTrigger("Attack");
-        
         //Check for enemies within the hitbox
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+        //Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(hitbox.position, hitboxRange, enemyLayers);
 
         //Damage enemy OR destroy object
         foreach (Collider2D enemy in hitEnemies)
