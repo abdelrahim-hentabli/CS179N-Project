@@ -36,7 +36,7 @@ public class Combat : MonoBehaviour
             //Ranged is right mouse click
             if (Input.GetKeyDown(KeyCode.Mouse1))
             {
-                Shoot();
+                playShoot();
                 nextAttack = Time.time + 1f / attackRate;
             }
         }
@@ -50,8 +50,15 @@ public class Combat : MonoBehaviour
     {
         //Begin attack animation
         attack.SetTrigger("Attack");
-        //Delay the mechanics of melee combat by 0.35 seconds
-        Invoke("Attack", 0.35f);
+        //Delay the mechanics of melee combat by 0.30625 seconds
+        Invoke("Attack", 0.30625f);
+    }
+
+    //Same as the function above, except for the crossbow mechanic
+    void playShoot()
+    {
+        shoot.SetTrigger("Shoot");
+        Invoke("Shoot", 0.30f);
     }
 
     //Melee attack
@@ -72,8 +79,6 @@ public class Combat : MonoBehaviour
     //Crossbow attack
     void Shoot()
     {
-        //Play crossbow firing animation
-        shoot.SetTrigger("Shoot");
         //Fire a bolt
         Instantiate(boltPrefab, firePoint.position, firePoint.rotation);
     }

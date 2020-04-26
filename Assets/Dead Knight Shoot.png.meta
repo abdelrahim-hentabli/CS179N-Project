@@ -1,16 +1,15 @@
 fileFormatVersion: 2
-guid: e71f9503cf4c3b845a3285ff3314c13d
+guid: 0e1de30871c7ca745b69d7340ad0a61a
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Dead Knight Attack_0
-    21300002: Dead Knight Attack_1
-    21300004: Dead Knight Attack_2
-    21300006: Dead Knight Attack_3
-    21300008: Dead Knight Attack_4
-    21300010: Dead Knight Attack_5
-    21300012: Dead Knight Attack_6
-    21300014: Dead Knight Attack_7
-    21300016: Dead Knight Attack_8
+    21300000: Dead Knight Shoot_0
+    21300002: Dead Knight Shoot_1
+    21300004: Dead Knight Shoot_2
+    21300006: Dead Knight Shoot_3
+    21300008: Dead Knight Shoot_4
+    21300010: Dead Knight Shoot_5
+    21300012: Dead Knight Shoot_6
+    21300014: Dead Knight Shoot_7
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -93,7 +92,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Dead Knight Attack_0
+      name: Dead Knight Shoot_0
       rect:
         serializedVersion: 2
         x: 0
@@ -107,13 +106,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e86922b8d3b51947a418de930f035fa
+      spriteID: 85da078a83629694bb3b23eb219ad688
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dead Knight Attack_1
+      name: Dead Knight Shoot_1
       rect:
         serializedVersion: 2
         x: 64
@@ -127,13 +126,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9869db97dc8e3a747be6c5c49dddac39
+      spriteID: 065e7340624ee7d42a53665a8d70fe26
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dead Knight Attack_2
+      name: Dead Knight Shoot_2
       rect:
         serializedVersion: 2
         x: 128
@@ -147,13 +146,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d0e2dff6721007e498a3718049cf07cb
+      spriteID: 8ed323670bc23c54ea063381a91a14eb
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dead Knight Attack_3
+      name: Dead Knight Shoot_3
       rect:
         serializedVersion: 2
         x: 0
@@ -167,13 +166,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 462ca745875ee7441b589b27e3d3893c
+      spriteID: c298592f658791e40a545f1e2e74be21
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dead Knight Attack_4
+      name: Dead Knight Shoot_4
       rect:
         serializedVersion: 2
         x: 64
@@ -187,13 +186,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d45694e6929c1284c8ee0f6754d9f1e6
+      spriteID: 497df6e928629fd4b8a1773232cbb04c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dead Knight Attack_5
+      name: Dead Knight Shoot_5
       rect:
         serializedVersion: 2
         x: 128
@@ -207,13 +206,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 28d1a3537159f2545ab5a88abf2b4a75
+      spriteID: 7517afdce3ceb034a8957a767592cff6
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dead Knight Attack_6
+      name: Dead Knight Shoot_6
       rect:
         serializedVersion: 2
         x: 0
@@ -227,13 +226,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f54a483ece1fd31499ac5ef4fa39887c
+      spriteID: 57ec97e141b4b164591e8e6f54b48830
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dead Knight Attack_7
+      name: Dead Knight Shoot_7
       rect:
         serializedVersion: 2
         x: 64
@@ -247,27 +246,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c98299ed25f722645acf74a48abffb31
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Dead Knight Attack_8
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dff642b09ba7dca47812d2304be0195f
+      spriteID: 73b9d401d163ca3478ace803da7d3f52
       vertices: []
       indices: 
       edges: []
@@ -275,7 +254,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 14b9ddbece3220048aa36b9267c0a9db
+    spriteID: 2195c0df8bed7a34dbf052934856ba5b
     vertices: []
     indices: 
     edges: []
