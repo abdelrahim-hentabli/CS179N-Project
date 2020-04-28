@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
+    public Animator animator;
 	public float speed;
 	public float jumpForce;
 	public float moveInput;
@@ -46,10 +47,12 @@ public class PlayerController : MonoBehaviour
                 direction = 2;
             } else if(Input.GetKey("s") && isGrounded){
                 if(Input.GetKeyDown("s")){
+                    animator.SetBool("IsCrouching", true);
                     headCollider.enabled = false;
                 }
             } else{
                 if(Input.GetKeyUp("s") || !isGrounded){
+                    animator.SetBool("IsCrouching", false);
                     headCollider.enabled = true;
                 }
                 body.velocity = new Vector2(moveInput * speed, body.velocity.y);
@@ -68,6 +71,7 @@ public class PlayerController : MonoBehaviour
             && (body.velocity.y == 0.0f));
 
     	moveInput = Input.GetAxisRaw("Horizontal");
+        animator.SetFloat("Speed", Mathf.Abs(moveInput));
     
     	if(facingRight == false && moveInput > 0){
     		Flip();
