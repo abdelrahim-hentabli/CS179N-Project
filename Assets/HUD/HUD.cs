@@ -58,7 +58,7 @@ public class HUD : MonoBehaviour
             onHealthPotion();
         }
 
-        if (Input.GetKeyDown(KeyCode.K))
+        if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             onCrossbow();
         }
