@@ -387,6 +387,7 @@ GameObject:
   - component: {fileID: 5835567128330044562}
   - component: {fileID: 5835567128330044563}
   - component: {fileID: 5835567128330044560}
+  - component: {fileID: 8246368945409897384}
   m_Layer: 5
   m_Name: HUD
   m_TagString: Untagged
@@ -476,6 +477,35 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &8246368945409897384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5835567128330044561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bf8b8052f467e34ea9ce08ce27443af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Healthbar: {fileID: 5835567128106563349}
+  healthPotionAmount: {fileID: 5835567129972560000}
+  bolts:
+  - {fileID: 5835567128053251284}
+  - {fileID: 5835567129914170331}
+  - {fileID: 5835567129334229522}
+  - {fileID: 5835567129274988810}
+  - {fileID: 5835567129736315768}
+  - {fileID: 5835567129739088931}
+  bombAmount: {fileID: 5835567129554912689}
+  maxHealth: 0
+  currentHealth: 0
+  healthPotions: 0
+  potionStrength: 0
+  currentQuickItem: 0
+  bombs: 0
+  boltAmount: 0
 --- !u!1 &5835567128656502947
 GameObject:
   m_ObjectHideFlags: 0
