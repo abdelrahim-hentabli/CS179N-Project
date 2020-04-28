@@ -136,11 +136,41 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 288504293}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.244, y: -0.142, z: 0}
+  m_LocalPosition: {x: 0.205, y: -0.114, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1915834144}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &783701987
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 783701988}
+  m_Layer: 0
+  m_Name: ShootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &783701988
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783701987}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.3774, y: 0.0063, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1915834144}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &863166639
 GameObject:
@@ -267,7 +297,7 @@ GameObject:
   - component: {fileID: 1848717283}
   - component: {fileID: 1848717286}
   - component: {fileID: 1848717287}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Grass (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -360,7 +390,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!251 &1848717286
 PlatformEffector2D:
@@ -478,8 +508,9 @@ Transform:
   m_Children:
   - {fileID: 1078654194}
   - {fileID: 288504294}
+  - {fileID: 783701988}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1915834145
 Rigidbody2D:
@@ -525,7 +556,7 @@ MonoBehaviour:
   checkRadius: 0.1
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 1024
   extraJumpsValue: 0
 --- !u!61 &1915834147
 BoxCollider2D:
@@ -600,16 +631,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af80e32eb8eb8454bb01ee925e9fb442, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: {fileID: 0}
+  attack: {fileID: 1915834149}
   attackPoint: {fileID: 288504294}
   attackRange: 0.35
   enemyLayers:
     serializedVersion: 2
     m_Bits: 0
   attackDamage: 20
-  shoot: {fileID: 0}
-  firePoint: {fileID: 0}
-  boltPrefab: {fileID: 0}
+  shoot: {fileID: 1915834149}
+  firePoint: {fileID: 783701988}
+  boltPrefab: {fileID: 5042256044450697994, guid: ee6a405b9c035d34a98cf9349584dd1b,
+    type: 3}
   attackRate: 2
 --- !u!1 &1926345646
 GameObject:
@@ -622,7 +654,7 @@ GameObject:
   - component: {fileID: 1926345649}
   - component: {fileID: 1926345648}
   - component: {fileID: 1926345647}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Grass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -715,5 +747,5 @@ Transform:
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

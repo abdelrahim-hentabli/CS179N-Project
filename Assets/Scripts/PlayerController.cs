@@ -83,9 +83,12 @@ public class PlayerController : MonoBehaviour
     void Flip(){
 
     	facingRight = !facingRight;
-    	Vector3 Scaler = transform.localScale;
-    	Scaler.x *= -1;
-    	transform.localScale = Scaler;
+        transform.Rotate(0f, 180f, 0f);
+
+        //Alex: Old code, but I'll leave this here in case we need this part for some reason
+    	//Vector3 Scaler = transform.localScale;
+    	//Scaler.x *= -1;
+    	//transform.localScale = Scaler;
     }
 
     void Dash(){
