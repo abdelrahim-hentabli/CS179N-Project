@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 841c28ddf744ed34285530e0849b4c98
+guid: 9cf5d9ecb93313b4cbd1bc65fde9e0e2
 TextureImporter:
   fileIDToRecycleName:
     21300000: Tank Enemy Idle_0
@@ -112,7 +112,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e206b511e154f94c9ad12be7b64781d
+      spriteID: c1feda58cc8c33e4e8e441dda02c5711
       vertices: []
       indices: 
       edges: []
@@ -132,7 +132,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 28a0061b89005ce4e9b16aaa1d31fa5d
+      spriteID: fcb2c86006f52b641babe7c99ed8a2fa
       vertices: []
       indices: 
       edges: []
@@ -152,7 +152,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45d166413d0f24f4cb593a6a298320ac
+      spriteID: 0c27834f8211b604ea88e76ff1edd7c0
       vertices: []
       indices: 
       edges: []
@@ -172,7 +172,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 133fd159903671f4c885272906202ef5
+      spriteID: 52757adf09ac20b43948c1a3e03167ac
       vertices: []
       indices: 
       edges: []
@@ -192,7 +192,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 00efa4e411e4ff342bdacd056493585b
+      spriteID: be0e8c1a437ff2043a54d1c42c594a91
       vertices: []
       indices: 
       edges: []
@@ -212,7 +212,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e9dc57535b69b640ba090787ca5f72f
+      spriteID: e72f0b64c7f91104696670e9e7bcbc12
       vertices: []
       indices: 
       edges: []
@@ -232,7 +232,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d650b5b9ed6c934e81fe2fdf3d36cf3
+      spriteID: 56595ad77f78a3a40a9fc7a0a372718b
       vertices: []
       indices: 
       edges: []
@@ -252,7 +252,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bb2a00296fc2a3a4e99923d7541bde84
+      spriteID: 2132afa4ea0285643a453d1f27cc510a
       vertices: []
       indices: 
       edges: []
@@ -272,7 +272,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4fb3278753fc0cf45a673ab6796dd83c
+      spriteID: d564216cfe22d654c8a45c42693092e3
       vertices: []
       indices: 
       edges: []
@@ -292,7 +292,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b3dbcb59f823ea4ab4b1b383b6b4320
+      spriteID: 7a5687825109adf47b7e83c0a6db8066
       vertices: []
       indices: 
       edges: []
@@ -312,7 +312,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 047b00bf0008bb94cafb94228782a5c4
+      spriteID: 4cbf15c94dc4b374c93c1d1de3b817be
       vertices: []
       indices: 
       edges: []
@@ -332,7 +332,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1999fb31cab53643b9e5cf3c1adfa50
+      spriteID: c1457d4fdd8f5a1478577f3cbc0980be
       vertices: []
       indices: 
       edges: []
@@ -352,7 +352,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 37076685b26364843aef9af86a9a6ddc
+      spriteID: e69595edc8ea8814cb1226c652c5ab80
       vertices: []
       indices: 
       edges: []
@@ -372,7 +372,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f3c9fffaa3d06d43b10a90296e3e675
+      spriteID: 90f277e55b5a84b4583e12cfbbec3dc6
       vertices: []
       indices: 
       edges: []
@@ -380,7 +380,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: b6afc1a35fe8dc24da287944d875174f
+    spriteID: 15480abf635b9f7489961b6e0628f176
     vertices: []
     indices: 
     edges: []
