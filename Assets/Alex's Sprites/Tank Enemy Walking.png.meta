@@ -1,21 +1,15 @@
 fileFormatVersion: 2
-guid: 813d68deb60b9354aa5561cfcf4d9284
+guid: cb23adc4bb0b39f488c70f82c595d6f6
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Tank Enemy Idle_0
-    21300002: Tank Enemy Idle_1
-    21300004: Tank Enemy Idle_2
-    21300006: Tank Enemy Idle_3
-    21300008: Tank Enemy Idle_4
-    21300010: Tank Enemy Idle_5
-    21300012: Tank Enemy Idle_6
-    21300014: Tank Enemy Idle_7
-    21300016: Tank Enemy Idle_8
-    21300018: Tank Enemy Idle_9
-    21300020: Tank Enemy Idle_10
-    21300022: Tank Enemy Idle_11
-    21300024: Tank Enemy Idle_12
-    21300026: Tank Enemy Idle_13
+    21300000: Tank Enemy Walking_0
+    21300002: Tank Enemy Walking_1
+    21300004: Tank Enemy Walking_2
+    21300006: Tank Enemy Walking_3
+    21300008: Tank Enemy Walking_4
+    21300010: Tank Enemy Walking_5
+    21300012: Tank Enemy Walking_6
+    21300014: Tank Enemy Walking_7
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -98,87 +92,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tank Enemy Idle_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 384
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f0bfe8302cb7ef14b9b22579ee021d94
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tank Enemy Idle_1
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 384
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 270e6df71cd7d3045995b16777c60497
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tank Enemy Idle_2
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 384
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7ece5c74a3b1ef8479c98704cb63e491
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tank Enemy Idle_3
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 384
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0f3fd557639c3a54c8fbb103bcc35b87
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tank Enemy Idle_4
+      name: Tank Enemy Walking_0
       rect:
         serializedVersion: 2
         x: 0
@@ -192,13 +106,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0955a7d81e07e1845b654e3ec5d8dfc8
+      spriteID: 786e1ef3a8eed584b90a388bbd708783
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tank Enemy Idle_5
+      name: Tank Enemy Walking_1
       rect:
         serializedVersion: 2
         x: 128
@@ -212,13 +126,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 017ea584a05309d41a2ab017ee07d0c5
+      spriteID: e7ad28d5aa98a61499f70bf709f91eb2
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tank Enemy Idle_6
+      name: Tank Enemy Walking_2
       rect:
         serializedVersion: 2
         x: 256
@@ -232,33 +146,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d7204ee5e237f164a8c5dbaaa8891ab9
+      spriteID: 4dfe08328d0d4ea41b663ed55e5bde8a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tank Enemy Idle_7
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 256
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 80a64732ccefce04fa51795a0b8cbba7
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tank Enemy Idle_8
+      name: Tank Enemy Walking_3
       rect:
         serializedVersion: 2
         x: 0
@@ -272,13 +166,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d9b46440c0e4c4a4986d59dc1d6c3243
+      spriteID: 7150db15b44ebba47b26096dca3ed6a8
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tank Enemy Idle_9
+      name: Tank Enemy Walking_4
       rect:
         serializedVersion: 2
         x: 128
@@ -292,13 +186,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f1731d35a2c230a44bdaea55c11b699e
+      spriteID: 6252df5d6b6375c4babfa0afa21bdc73
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tank Enemy Idle_10
+      name: Tank Enemy Walking_5
       rect:
         serializedVersion: 2
         x: 256
@@ -312,33 +206,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 920c433165eb9df479c32897e74cc1e6
+      spriteID: 31352edd8dfcd4443bbf85e419918ca6
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tank Enemy Idle_11
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 128
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bf000df07ea4461408e58d30ac9ae5f5
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tank Enemy Idle_12
+      name: Tank Enemy Walking_6
       rect:
         serializedVersion: 2
         x: 0
@@ -352,13 +226,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab81037a831c95b44b06970266b9bd29
+      spriteID: 9856e5f36970fe94a9af5d9316f05998
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tank Enemy Idle_13
+      name: Tank Enemy Walking_7
       rect:
         serializedVersion: 2
         x: 128
@@ -372,7 +246,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a2bad4ae23e93746b4b10f8c6710f11
+      spriteID: b7cc5c77582fded4cb9a8655285f6708
       vertices: []
       indices: 
       edges: []
@@ -380,7 +254,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: b12cb2aa024004b4989918bc084fc7af
+    spriteID: 92ccbec0c0ab2af459f4d55628da6e51
     vertices: []
     indices: 
     edges: []
