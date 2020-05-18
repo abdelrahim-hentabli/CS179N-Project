@@ -32,3 +32,4 @@ public class fastMelee_enemy : MonoBehaviour
             this.enabled = false;
         }
     }
+}
