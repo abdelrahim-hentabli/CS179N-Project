@@ -9,7 +9,7 @@ public class fastMelee_triggerAreaCheck : MonoBehaviour {
     	enemyParent = GetComponentInParent<fastMelee_behavior>();
     }
 
-    private void OnTrigger2D(Collider2D collider) {
+    private void OnTriggerEnter2D(Collider2D collider) {
     	if(collider.gameObject.CompareTag("Player")) {
     		gameObject.SetActive(false);
     		enemyParent.target = collider.transform;

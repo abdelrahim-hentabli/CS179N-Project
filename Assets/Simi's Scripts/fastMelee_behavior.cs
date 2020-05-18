@@ -16,7 +16,6 @@ public class fastMelee_behavior : MonoBehaviour {
 	#endregion
 
 	#region Private Variables
-
 	private Animator anim;
 	private float distance; //store the distance betwn enemy and player
 	private bool attackMode;

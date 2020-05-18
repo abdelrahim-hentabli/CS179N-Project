@@ -30,7 +30,7 @@ public class fastMelee_hotzoneCheck : MonoBehaviour {
     		gameObject.SetActive(false);
     		enemyParent.triggerArea.SetActive(true);
     		enemyParent.inRange = false;
-    		enemyParent.SelectTarger();
+    		enemyParent.SelectTarget();
     	}
     }
 
