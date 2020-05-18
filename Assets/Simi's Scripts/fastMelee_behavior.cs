@@ -70,13 +70,14 @@ public class fastMelee_behavior : MonoBehaviour {
     	}
 
     	if(cooling) {
+            Cooldown();
     		anim.SetBool("Attack", false);
     	}
     }
 
     void Move() {
         anim.SetBool("canWalk", true);
-        
+
     	if(!anim.GetCurrentAnimatorStateInfo(0).IsName("fastMelee_attack")) {
     		Vector2 targetPosition = new Vector2(target.transform.position.x, transform.position.y);
     		transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
@@ -89,6 +90,15 @@ public class fastMelee_behavior : MonoBehaviour {
 
         anim.SetBool("canWalk", false);
         anim.SetBool("Attack", true);
+    }
+
+    void Cooldown() {
+        timer -= Time.deltaTime;
+
+        if(timer <= 0 && cooling && attackMode) {
+            cooling = false;
+            timer = intTimer;
+        }
     }
 
     void StopAttack() {
@@ -105,5 +115,9 @@ public class fastMelee_behavior : MonoBehaviour {
     	else if(attackDistance > distance) {
     		Debug.DrawRay(rayCast.position, Vector2.left * rayCastLength, Color.green);
     	}
+    }
+
+    public void TriggerCooling() {
+        cooling = true;
     }
 }
