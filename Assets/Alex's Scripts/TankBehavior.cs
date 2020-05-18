@@ -5,27 +5,35 @@ using UnityEngine;
 public class TankBehavior : MonoBehaviour
 {
     #region Public Variables
-    public Transform rayCast;
+    /*public Transform rayCast; //These three not being used at the moment
     public LayerMask rayCastMask;
-    public float rayCastLength;
+    public float rayCastLength;*/
     public float attackDistance; //min distance for attack
     public float moveSpeed;
     public float timer; //timer for cooldown between attacks
+    public Transform leftLimit;
+    public Transform rightLimit;
+    [HideInInspector] public Transform target;
+    [HideInInspector] public bool inRange;
+    public GameObject hotzone;
+    public GameObject triggerArea;
     #endregion
 
     #region Private Variables
     private RaycastHit2D hit;
-    private GameObject target;
+    //private GameObject target; //For non-patrolling enemy behavior
+    //private Transform target; //For patrolling enemy behavior
     private Animator anim;
     private float distance; //store the distance betwn enemy and player
     private bool attackMode;
-    private bool inRange; //check if player is in range
+    //private bool inRange; //check if player is in range
     private bool cooling; //check if enemy is cooling after attack
     private float intTimer;
     #endregion
 
     void Awake()
     {
+        SelectTarget(); //patrolling only
         intTimer = timer; //store the initial value of timer
         anim = GetComponent<Animator>();
     }
@@ -33,46 +41,31 @@ public class TankBehavior : MonoBehaviour
 
     void Update()
     {
+        //Next two if statements only for patrolling enemies
+        if (!attackMode)
+        {
+            Move();
+        }
+
+        if (!InsideOfLimits() && !inRange && !anim.GetCurrentAnimatorStateInfo(0).IsName("Tank_Attack"))
+        {
+            SelectTarget();
+        }
+
         if (inRange)
         {
-            hit = Physics2D.Raycast(rayCast.position, Vector2.left, rayCastLength, rayCastMask);
-            RaycastDebugger();
-        }
-
-        //when player is detected
-        if (hit.collider != null)
-        {
             EnemyLogic();
-        }
-
-        else if (hit.collider == null)
-        {
-            inRange = false;
-        }
-
-        if (inRange == false)
-        {
-            anim.SetBool("canWalk", false);
-            StopAttack();
-        }
-    }
-
-    void OnTriggerEnter2D(Collider2D trig)
-    {
-        if (trig.gameObject.tag == "Player")
-        {
-            target = trig.gameObject;
-            inRange = true;
         }
     }
 
     void EnemyLogic()
     {
-        distance = Vector2.Distance(transform.position, target.transform.position);
+        //distance = Vector2.Distance(transform.position, target.transform.position);
+        distance = Vector2.Distance(transform.position, target.position);
 
         if (distance > attackDistance)
         {
-            Move();
+            //Move(); //Activation of Move() here for non-patrolling enemies
             StopAttack();
         }
 
@@ -94,7 +87,8 @@ public class TankBehavior : MonoBehaviour
 
         if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Tank_Attack"))
         {
-            Vector2 targetPosition = new Vector2(target.transform.position.x, transform.position.y);
+            //Vector2 targetPosition = new Vector2(target.transform.position.x, transform.position.y); //For non-patrolling enemies
+            Vector2 targetPosition = new Vector2(target.position.x, transform.position.y); //For patrolling enemies
             transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
         }
     }
@@ -126,22 +120,45 @@ public class TankBehavior : MonoBehaviour
         anim.SetBool("Attack", false);
     }
 
-    void RaycastDebugger()
-    {
-        if (distance > attackDistance)
-        {
-            Debug.DrawRay(rayCast.position, Vector2.left * rayCastLength, Color.red);
-        }
-
-        else if (attackDistance > distance)
-        {
-            Debug.DrawRay(rayCast.position, Vector2.left * rayCastLength, Color.green);
-        }
-    }
-
     public void TriggerCooling()
     {
         cooling = true;
     }
 
+    //Next two functions only for patrolling
+    private bool InsideOfLimits()
+    {
+        return transform.position.x > leftLimit.position.x && transform.position.x < rightLimit.position.x;
+    }
+
+    public void SelectTarget()
+    {
+        float distanceToLeft = Vector2.Distance(transform.position, leftLimit.position);
+        float distanceToRight = Vector2.Distance(transform.position, rightLimit.position);
+
+        if (distanceToLeft > distanceToRight)
+        {
+            target = leftLimit;
+        }
+        else
+        {
+            target = rightLimit;
+        }
+        Flip();
+    }
+
+    public void Flip()
+    {
+        Vector3 rotation = transform.eulerAngles;
+        if (transform.position.x > target.position.x)
+        {
+            rotation.y = 180;
+        }
+        else
+        {
+            rotation.y = 0;
+        }
+
+        transform.eulerAngles = rotation;
+    }
 }
