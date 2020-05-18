@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public Camera mainCamera;
 
     public Animator animator;
 	public float speed;
@@ -39,7 +40,9 @@ public class PlayerController : MonoBehaviour
 
     // Update is called once per frame
     void Update(){
-
+        Vector3 cameraPosition = transform.position;
+        cameraPosition.z = mainCamera.transform.position.z;
+        mainCamera.transform.position = cameraPosition;
         if(direction == 0){
             if((Input.GetAxisRaw("Horizontal") > 0) && Input.GetKeyDown("k")){
                 direction = 1;
