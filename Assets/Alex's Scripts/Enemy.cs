@@ -6,8 +6,8 @@ public class Enemy : MonoBehaviour
 {
     public Animator enemy;
 
-    public int maxHealth = 100;
-    int currentHealth;
+    public int maxHealth;
+    public static int currentHealth;
 
     // Start is called before the first frame update
     void Start()

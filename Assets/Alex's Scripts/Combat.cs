@@ -92,10 +92,4 @@ public class Combat : MonoBehaviour
         }
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
-
-    //Testing player hitting something: New version
- /*   void OnCollisionEnter2D(Collision2D collision)
-    {
-        
-    }*/
 }

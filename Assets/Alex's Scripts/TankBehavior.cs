@@ -17,6 +17,7 @@ public class TankBehavior : MonoBehaviour
     [HideInInspector] public bool inRange;
     public GameObject hotzone;
     public GameObject triggerArea;
+    public static int health;
     #endregion
 
     #region Private Variables
@@ -29,6 +30,7 @@ public class TankBehavior : MonoBehaviour
     //private bool inRange; //check if player is in range
     private bool cooling; //check if enemy is cooling after attack
     private float intTimer;
+    //private static int health;
     #endregion
 
     void Awake()
@@ -41,6 +43,8 @@ public class TankBehavior : MonoBehaviour
 
     void Update()
     {
+        health = Enemy.currentHealth;
+
         //Next two if statements only for patrolling enemies
         if (!attackMode)
         {
@@ -55,6 +59,12 @@ public class TankBehavior : MonoBehaviour
         if (inRange)
         {
             EnemyLogic();
+        }
+
+        if (health <= 0)
+        {
+            Destroy(hotzone);
+            Destroy(triggerArea);
         }
     }
 
