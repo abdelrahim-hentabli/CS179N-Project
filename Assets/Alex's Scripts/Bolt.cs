@@ -18,16 +18,7 @@ public class Bolt : MonoBehaviour
     //If bolt hits enemy, deal damage
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //Debug.Log(collision.name);
-        if (collision.CompareTag("Enemy"))
-        {
-            //Debug.Log(collision.name);
-            Enemy enemy = collision.GetComponent<Enemy>();
-            if (enemy != null)
-            {
-                enemy.SendMessage("takeDamage", boltDamage);
-            }
-            Destroy(gameObject); //Remove bolt after it hits enemy
-        }
+        collision.SendMessage("takeDamage", boltDamage);
+        Destroy(gameObject); //Remove bolt after it hits enemy
     }
 }
