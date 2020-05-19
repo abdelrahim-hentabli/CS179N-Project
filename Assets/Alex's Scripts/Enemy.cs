@@ -6,11 +6,11 @@ public class Enemy : MonoBehaviour
 {
     public Animator enemy;
 
-    public int maxHealth;
-    public static int currentHealth;
 
-    public GameObject hotzone;
-    public GameObject trigger;
+    float stunTimer;
+    bool isStunned = false;
+    public int maxHealth = 100;
+    int currentHealth;
 
     // Start is called before the first frame update
     void Start()
@@ -18,27 +18,22 @@ public class Enemy : MonoBehaviour
         currentHealth = maxHealth;
     }
 
-    public void takeDamage(int damage)
-    {
+    public void takeDamage(int damage) {
         currentHealth -= damage;
+        
 
-        //Play hurt animation
-        enemy.SetTrigger("Hit");
 
-        if (currentHealth <= 0)
-        {
-            //Die
-            //Debug.Log("Enemy dead");
+        if (currentHealth <= 0) {
             enemy.SetBool("Dead", true);
-            GetComponent<Collider2D>().enabled = false;
+            this.GetComponent<Rigidbody2D>().isKinematic = true;
             this.enabled = false;
-            Destroy(hotzone);
-            Destroy(trigger);
+            //moveSpeed = 0;
         }
-        else
-        {
-            hotzone.SetActive(true);
-            trigger.SetActive(true);
+
+        else {
+            enemy.SetTrigger("Hit");
+            //moveSpeed = 0;
+            isStunned = true;
         }
     }
 }
