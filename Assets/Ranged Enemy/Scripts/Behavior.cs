@@ -20,7 +20,7 @@ public class Behavior : MonoBehaviour
 
     public GameObject boltPrefab;
 
-    public float speed;
+    float speed;
 
     const float WALK_SPEED = .5f;
 
@@ -140,12 +140,18 @@ public class Behavior : MonoBehaviour
             this.GetComponent<Rigidbody2D>().isKinematic = false;
             this.enabled = false;
             speed = 0;
+            Invoke("die", 1f);
         }
         else
         {
             animator.SetTrigger("Hit");
-            speed = 0;
+            speed = -.1f;
             stunned = true;
         }
+    }
+
+    void die()
+    {
+        this.gameObject.SetActive(false);
     }
 }
