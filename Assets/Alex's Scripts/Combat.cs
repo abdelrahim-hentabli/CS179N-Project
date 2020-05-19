@@ -71,8 +71,12 @@ public class Combat : MonoBehaviour
         //Damage enemy OR destroy object
         foreach (Collider2D enemy in hitEnemies)
         {
-            //Debug.Log("We hit " + enemy.name);
-            enemy.GetComponent<Enemy>().takeDamage(attackDamage);
+            Debug.Log("We hit " + enemy.name);
+            if(enemy.gameObject.tag == "Enemy") {
+                enemy.gameObject.SendMessage("takeDamage", attackDamage);
+            }
+            //enemy.GetComponent<Enemy>().takeDamage(attackDamage);
+            //enemy.GetComponent<fastMelee_behavior>().takeDamage(attackDamage);
         }
     }
 
@@ -92,4 +96,12 @@ public class Combat : MonoBehaviour
         }
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
+/*
+    void OnTriggerEnter2D(Collider2D hitInfo) {
+        fastMelee_behavior fastM = hitInfo.GetComponent<fastMelee_behavior>();
+        if(fastM != null) {
+            fastM.takeDamage(attackDamage);
+        }
+    }
+*/
 }

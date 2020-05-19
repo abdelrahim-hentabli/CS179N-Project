@@ -20,11 +20,15 @@ public class Bolt : MonoBehaviour
     {
         //Debug.Log(collision.name);
 
-        Enemy enemy = collision.GetComponent<Enemy>();
-        if (enemy != null)
-        {
-            enemy.takeDamage(boltDamage);
+        //Enemy enemy = collision.GetComponent<Enemy>();
+        //if (enemy != null)
+        //{
+       //     enemy.takeDamage(boltDamage);
+        //}
+        if(collision.gameObject.tag == "Enemy") {
+            collision.gameObject.SendMessage("takeDamage", boltDamage);
+            Destroy(gameObject); //Remove bolt after it hits enemy
         }
-        Destroy(gameObject); //Remove bolt after it hits enemy
+        
     }
 }

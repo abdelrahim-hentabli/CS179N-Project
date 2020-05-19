@@ -13,35 +13,63 @@ public class fastMelee_behavior : MonoBehaviour {
     [HideInInspector] public bool inRange; //check if player is in range
     public GameObject hotZone;
     public GameObject triggerArea;
+    public int maxHealth;
+    public static int currentHealth;
 	#endregion
 
 	#region Private Variables
+    const int STARTING_HEALTH = 100;
+    //const float STUN_TIME = 1.5f;
 	private Animator anim;
 	private float distance; //store the distance betwn enemy and player
 	private bool attackMode;
 	private bool cooling; //check if enemy is cooling after attack
 	private float intTimer;
+    float stunTimer;
+    bool isStunned = false;
 	#endregion
 
 	void Awake() {
         SelectTarget();
 		intTimer = timer; //store the initial value of timer
 		anim = GetComponent<Animator>();
+        stunTimer = 0;
 	}
 
+    void Start() {
+        currentHealth = maxHealth;
+    }
 
     void Update() {
-        if(!attackMode) {
+        if(!anim.GetBool("Dead")) {
+            if(!attackMode) {
             Move();
-        }
+            }
 
-        if(!InsideofLimits() && !inRange && !anim.GetCurrentAnimatorStateInfo(0).IsName("fastMelee_attack")) {
-            SelectTarget();
-        } 
+            if(!InsideofLimits() && !inRange && !anim.GetCurrentAnimatorStateInfo(0).IsName("fastMelee_attack")) {
+                SelectTarget();
+            } 
 
  
-        if(inRange) {
-        	EnemyLogic();
+            if(inRange) {
+                EnemyLogic();
+            }
+        }
+
+        else if(anim.GetBool("Dead")) {
+            anim.SetBool("Attack", false);
+            anim.SetBool("canWalk", false);
+        }
+        
+
+        if(isStunned) {
+            stunTimer += Time.deltaTime;
+            if(stunTimer >= 0.5f) {
+                isStunned = false;
+                stunTimer = 0;
+                moveSpeed = 0.2f;
+            }
+
         }
     }
 
@@ -49,7 +77,6 @@ public class fastMelee_behavior : MonoBehaviour {
     	distance = Vector2.Distance(transform.position, target.position);
 
     	if(distance > attackDistance) {
-    		
     		StopAttack();
     	}
 
@@ -131,5 +158,23 @@ public class fastMelee_behavior : MonoBehaviour {
         }
 
         transform.eulerAngles = rotation;
+    }
+
+    public void takeDamage(int damage) {
+        currentHealth -= damage;
+        
+
+        if (currentHealth <= 0) {
+            anim.SetBool("Dead", true);
+            this.GetComponent<Rigidbody2D>().isKinematic = true;
+            this.enabled = false;
+            moveSpeed = 0;
+        }
+
+        else {
+            anim.SetTrigger("Hit");
+            moveSpeed = 0;
+            isStunned = true;
+        }
     }
 }
