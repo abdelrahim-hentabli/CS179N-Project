@@ -22,6 +22,7 @@ public class Bolt : MonoBehaviour
         {
             collision.gameObject.SendMessage("takeDamage", boltDamage);
             Destroy(gameObject); //Remove bolt after it hits enemy
+
         }
     }
 }

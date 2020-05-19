@@ -70,9 +70,10 @@ public class Combat : MonoBehaviour
         //Damage enemy OR destroy object
         foreach (Collider2D enemy in hitEnemies)
         {
-            //Debug.Log("We hit " + enemy.name);
-            enemy.SendMessage("takeDamage", attackDamage);
-            //enemy.GetComponent<Enemy>().takeDamage(attackDamage);
+            if(enemy.gameObject.tag == "Enemy")
+            {
+            	enemy.gameObject.SendMessage("takeDamage", attackDamage);
+            }
         }
     }
 

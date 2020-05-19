@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
         Vector3 cameraPosition = transform.position;
         cameraPosition.z = mainCamera.transform.position.z;
         mainCamera.transform.position = cameraPosition;
-
+        
         if (direction == 0){
             if((Input.GetAxisRaw("Horizontal") > 0) && Input.GetKeyDown("k")){
                 direction = 1;
@@ -101,13 +101,16 @@ public class PlayerController : MonoBehaviour
             direction = 0;
             dashTime = startDashTime;
             body.velocity = Vector2.zero;
+            animator.SetBool("IsDashing", false);
         } else { 
             dashTime -= Time.deltaTime;
 
             if(direction == 1){
                 body.velocity = Vector2.right * dashSpeed;
+                animator.SetBool("IsDashing", true);
             } else if(direction == 2) {
                 body.velocity = Vector2.left * dashSpeed;
+                animator.SetBool("IsDashing", true);
             }
         }
     }
@@ -115,7 +118,16 @@ public class PlayerController : MonoBehaviour
     void Jump(){
         if(isGrounded == true){
             extraJumps = extraJumpsValue;
+            animator.SetBool("IsJumping", false);
+            animator.SetBool("IsFalling", false);
         }else if(isGrounded == false) {
+        	if(body.velocity.y > 0.0f){
+        		animator.SetBool("IsJumping", true);
+        	}
+        	else if(body.velocity.y <= 0.0f){
+        		animator.SetBool("IsJumping", false);
+        		animator.SetBool("IsFalling", true);
+        	}
             extraJumps = 0;
         }
 
@@ -124,6 +136,7 @@ public class PlayerController : MonoBehaviour
             extraJumps--;
         } else if(Input.GetButtonDown("Jump") && extraJumps == 0 && isGrounded == true) {
             body.velocity = Vector2.up * jumpForce;
+            animator.SetBool("IsJumping", true);
         }
     }
 }
