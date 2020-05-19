@@ -69,7 +69,7 @@ public class TankBehavior : MonoBehaviour
         {
             stunTimer += Time.deltaTime;
 
-            if (stunTimer >= 0.5f)
+            if (stunTimer >= 0.2f)
             {
                 stunned = false;
                 stunTimer = 0;
@@ -186,7 +186,7 @@ public class TankBehavior : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            anim.SetTrigger("Die");
+            anim.SetTrigger("Dead");
             this.GetComponent<Rigidbody2D>().isKinematic = false;
             this.enabled = false;
             moveSpeed = 0;

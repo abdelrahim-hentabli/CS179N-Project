@@ -18,7 +18,7 @@ public class Combat : MonoBehaviour
     public GameObject boltPrefab;
 
     //Makes sure player can't stunlock enemies to death that easily
-    public float attackRate = 2f;
+    public float attackRate = 0.1f;
     float nextAttack = 0f;
 
     // Update is called once per frame
