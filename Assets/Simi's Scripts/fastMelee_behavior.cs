@@ -71,6 +71,12 @@ public class fastMelee_behavior : MonoBehaviour {
             }
 
         }
+
+        if (currentHealth <= 0)
+        {
+            Destroy(hotZone);
+            Destroy(triggerArea);
+        }
     }
 
     void EnemyLogic() {
