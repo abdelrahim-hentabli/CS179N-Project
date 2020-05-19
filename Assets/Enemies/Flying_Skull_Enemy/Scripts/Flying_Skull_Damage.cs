@@ -32,6 +32,7 @@ public class Flying_Skull_Damage : MonoBehaviour
 
             anim.SetBool("Dead", true);
             this.GetComponent<Rigidbody2D>().isKinematic = true;
+            this.GetComponent<Collider2D>().enabled = false;
             this.enabled = false;
 
             // enemy.SetBool("Dead", true);
