@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
 
 	private int extraJumps;
 	public int extraJumpsValue;
+	public Camera mainCamera;
 
     // Start is called before the first frame update
     void Start()
@@ -40,9 +41,11 @@ public class PlayerController : MonoBehaviour
 
     // Update is called once per frame
     void Update(){
-        Vector3 cameraPosition = transform.position;
+
+    	Vector3 cameraPosition = transform.position;
         cameraPosition.z = mainCamera.transform.position.z;
         mainCamera.transform.position = cameraPosition;
+
         if(direction == 0){
             if((Input.GetAxisRaw("Horizontal") > 0) && Input.GetKeyDown("k")){
                 direction = 1;
