@@ -1331,6 +1331,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1172629638802601680, guid: a0e07a54546d17e42ae9219decb395c3,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1915834142}
     - target: {fileID: 1172629639648810753, guid: a0e07a54546d17e42ae9219decb395c3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1395,6 +1400,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1172629640327512416, guid: a0e07a54546d17e42ae9219decb395c3,
+        type: 3}
+      propertyPath: seeEnemy
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1172629640327512431, guid: a0e07a54546d17e42ae9219decb395c3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1172629640390068386, guid: a0e07a54546d17e42ae9219decb395c3,
         type: 3}
