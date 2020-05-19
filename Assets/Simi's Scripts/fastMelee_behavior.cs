@@ -59,6 +59,8 @@ public class fastMelee_behavior : MonoBehaviour {
         else if(anim.GetBool("Dead")) {
             anim.SetBool("Attack", false);
             anim.SetBool("canWalk", false);
+            Destroy(hotZone);
+            Destroy(triggerArea);
         }
         
 
@@ -70,12 +72,6 @@ public class fastMelee_behavior : MonoBehaviour {
                 moveSpeed = 0.2f;
             }
 
-        }
-
-        if (currentHealth <= 0)
-        {
-            Destroy(hotZone);
-            Destroy(triggerArea);
         }
     }
 
