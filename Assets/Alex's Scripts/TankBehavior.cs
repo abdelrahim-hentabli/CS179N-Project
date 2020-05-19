@@ -17,6 +17,7 @@ public class TankBehavior : MonoBehaviour
     public GameObject head;
     public GameObject feet;
     public GameObject hitbox;
+    public Collider2D body;
     public int maxHealth;
     public int currentHealth;
     #endregion
@@ -32,6 +33,7 @@ public class TankBehavior : MonoBehaviour
 
     float stunTimer;
     bool stunned = false;
+    
 
     void Awake()
     {
@@ -190,6 +192,14 @@ public class TankBehavior : MonoBehaviour
             this.GetComponent<Rigidbody2D>().isKinematic = false;
             this.enabled = false;
             moveSpeed = 0;
+
+            Destroy(head);
+            Destroy(feet);
+            Destroy(hitbox);
+            body.enabled = false;
+            Destroy(hotzone);
+            Destroy(triggerArea);
+
         }
 
         else
