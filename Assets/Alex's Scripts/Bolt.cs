@@ -19,12 +19,15 @@ public class Bolt : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //Debug.Log(collision.name);
-
-        Enemy enemy = collision.GetComponent<Enemy>();
-        if (enemy != null)
+        if (collision.CompareTag("Enemy"))
         {
-            enemy.takeDamage(boltDamage);
+            //Debug.Log(collision.name);
+            Enemy enemy = collision.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                enemy.SendMessage("takeDamage", boltDamage);
+            }
+            Destroy(gameObject); //Remove bolt after it hits enemy
         }
-        Destroy(gameObject); //Remove bolt after it hits enemy
     }
 }

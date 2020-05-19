@@ -5,9 +5,6 @@ using UnityEngine;
 public class TankBehavior : MonoBehaviour
 {
     #region Public Variables
-    /*public Transform rayCast; //These three not being used at the moment
-    public LayerMask rayCastMask;
-    public float rayCastLength;*/
     public float attackDistance; //min distance for attack
     public float moveSpeed;
     public float timer; //timer for cooldown between attacks
@@ -17,34 +14,40 @@ public class TankBehavior : MonoBehaviour
     [HideInInspector] public bool inRange;
     public GameObject hotzone;
     public GameObject triggerArea;
-    public static int health;
+    public GameObject head;
+    public GameObject feet;
+    public GameObject hitbox;
+    public int maxHealth;
+    public int currentHealth;
     #endregion
 
     #region Private Variables
     private RaycastHit2D hit;
-    //private GameObject target; //For non-patrolling enemy behavior
-    //private Transform target; //For patrolling enemy behavior
     private Animator anim;
     private float distance; //store the distance betwn enemy and player
     private bool attackMode;
-    //private bool inRange; //check if player is in range
     private bool cooling; //check if enemy is cooling after attack
     private float intTimer;
-    //private static int health;
     #endregion
+
+    float stunTimer;
+    bool stunned = false;
 
     void Awake()
     {
         SelectTarget(); //patrolling only
         intTimer = timer; //store the initial value of timer
         anim = GetComponent<Animator>();
+        stunTimer = 0;
     }
 
+    void Start()
+    {
+        currentHealth = maxHealth;
+    }
 
     void Update()
     {
-        health = Enemy.currentHealth;
-
         //Next two if statements only for patrolling enemies
         if (!attackMode)
         {
@@ -61,21 +64,26 @@ public class TankBehavior : MonoBehaviour
             EnemyLogic();
         }
 
-        if (health <= 0)
+        //If enemy is stunned, do this
+        if (stunned)
         {
-            Destroy(hotzone);
-            Destroy(triggerArea);
+            stunTimer += Time.deltaTime;
+
+            if (stunTimer >= 0.5f)
+            {
+                stunned = false;
+                stunTimer = 0;
+                moveSpeed = 0.2f;
+            }
         }
     }
 
     void EnemyLogic()
     {
-        //distance = Vector2.Distance(transform.position, target.transform.position);
         distance = Vector2.Distance(transform.position, target.position);
 
         if (distance > attackDistance)
         {
-            //Move(); //Activation of Move() here for non-patrolling enemies
             StopAttack();
         }
 
@@ -97,7 +105,6 @@ public class TankBehavior : MonoBehaviour
 
         if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Tank_Attack"))
         {
-            //Vector2 targetPosition = new Vector2(target.transform.position.x, transform.position.y); //For non-patrolling enemies
             Vector2 targetPosition = new Vector2(target.position.x, transform.position.y); //For patrolling enemies
             transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
         }
@@ -170,5 +177,26 @@ public class TankBehavior : MonoBehaviour
         }
 
         transform.eulerAngles = rotation;
+    }
+
+    //Enemy health and stuff
+    public void takeDamage(int damage)
+    {
+        currentHealth -= damage;
+
+        if (currentHealth <= 0)
+        {
+            anim.SetTrigger("Die");
+            this.GetComponent<Rigidbody2D>().isKinematic = false;
+            this.enabled = false;
+            moveSpeed = 0;
+        }
+
+        else
+        {
+            anim.SetTrigger("Hit");
+            moveSpeed = 0;
+            stunned = true;
+        }
     }
 }

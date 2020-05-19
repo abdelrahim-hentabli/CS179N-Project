@@ -16,7 +16,7 @@ public class TankHotzoneCheck : MonoBehaviour
 
     private void Update()
     {
-        if (inRange && !anim.GetCurrentAnimatorStateInfo(0).IsName("Tank_Attack0"))
+        if (inRange && !anim.GetCurrentAnimatorStateInfo(0).IsName("Tank_Attack"))
         {
             tankParent.Flip();
         }

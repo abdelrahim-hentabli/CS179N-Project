@@ -66,13 +66,13 @@ public class Combat : MonoBehaviour
     {
         //Check for enemies within the hitbox
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-        //Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(hitbox.position, hitboxRange, enemyLayers);
 
         //Damage enemy OR destroy object
         foreach (Collider2D enemy in hitEnemies)
         {
             //Debug.Log("We hit " + enemy.name);
-            enemy.GetComponent<Enemy>().takeDamage(attackDamage);
+            enemy.SendMessage("takeDamage", attackDamage);
+            //enemy.GetComponent<Enemy>().takeDamage(attackDamage);
         }
     }
 

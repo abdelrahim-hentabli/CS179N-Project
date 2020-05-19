@@ -9,6 +9,9 @@ public class Enemy : MonoBehaviour
     public int maxHealth;
     public static int currentHealth;
 
+    public GameObject hotzone;
+    public GameObject trigger;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,10 +29,16 @@ public class Enemy : MonoBehaviour
         {
             //Die
             //Debug.Log("Enemy dead");
-
             enemy.SetBool("Dead", true);
             GetComponent<Collider2D>().enabled = false;
             this.enabled = false;
+            Destroy(hotzone);
+            Destroy(trigger);
+        }
+        else
+        {
+            hotzone.SetActive(true);
+            trigger.SetActive(true);
         }
     }
 }
