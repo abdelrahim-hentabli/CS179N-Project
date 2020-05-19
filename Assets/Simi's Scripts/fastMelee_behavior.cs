@@ -43,7 +43,7 @@ public class fastMelee_behavior : MonoBehaviour {
     void Update() {
         if(!anim.GetBool("Dead")) {
             if(!attackMode) {
-            Move();
+                Move();
             }
 
             if(!InsideofLimits() && !inRange && !anim.GetCurrentAnimatorStateInfo(0).IsName("fastMelee_attack")) {

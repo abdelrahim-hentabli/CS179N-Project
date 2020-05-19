@@ -26,6 +26,8 @@ public class Enemy : MonoBehaviour
         if (currentHealth <= 0) {
             enemy.SetBool("Dead", true);
             this.GetComponent<Rigidbody2D>().isKinematic = true;
+            this.GetComponent<Collider2D>().enabled = false;
+            this.GetComponent<CircleCollider2D>().enabled = false;
             this.enabled = false;
             //moveSpeed = 0;
         }
