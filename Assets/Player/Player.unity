@@ -454,7 +454,7 @@ GameObject:
   m_Component:
   - component: {fileID: 350231710}
   - component: {fileID: 350231711}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: fastMelee_sprites
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -783,7 +783,7 @@ GameObject:
   - component: {fileID: 887414545}
   - component: {fileID: 887414544}
   - component: {fileID: 887414543}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: fastMelee_hotzone
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -1052,7 +1052,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1334085836}
   - component: {fileID: 1334085837}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: fastMelee_hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1115,7 +1115,7 @@ GameObject:
   - component: {fileID: 1365858325}
   - component: {fileID: 1365858324}
   - component: {fileID: 1365858326}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fast Melee Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -1317,7 +1317,7 @@ GameObject:
   - component: {fileID: 1438696469}
   - component: {fileID: 1438696470}
   - component: {fileID: 1438696471}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: fastMelee_triggerArea
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
