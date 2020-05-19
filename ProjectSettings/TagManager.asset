@@ -3,8 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Enemy
+  tags: [Enemy]
   layers:
   - Default
   - TransparentFX
@@ -17,11 +16,11 @@ TagManager:
   - Player
   - Enemy
   - Ground
+  - AttackBox
+  - EnemyProjectile
   - 
   - 
-  - 
-  - 
-  - 
+  - Useless
   - 
   - 
   - 

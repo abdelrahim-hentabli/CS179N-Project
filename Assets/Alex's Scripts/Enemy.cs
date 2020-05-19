@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 {
     public Animator enemy;
 
+
     float stunTimer;
     bool isStunned = false;
     public int maxHealth = 100;
@@ -20,6 +21,7 @@ public class Enemy : MonoBehaviour
     public void takeDamage(int damage) {
         currentHealth -= damage;
         
+
 
         if (currentHealth <= 0) {
             enemy.SetBool("Dead", true);
