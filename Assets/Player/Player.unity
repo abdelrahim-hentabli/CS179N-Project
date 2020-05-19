@@ -1114,6 +1114,7 @@ GameObject:
   - component: {fileID: 1365858323}
   - component: {fileID: 1365858325}
   - component: {fileID: 1365858324}
+  - component: {fileID: 1365858326}
   m_Layer: 0
   m_Name: Fast Melee Enemy
   m_TagString: Enemy
@@ -1200,6 +1201,7 @@ MonoBehaviour:
   inRange: 0
   hotZone: {fileID: 887414542}
   triggerArea: {fileID: 1438696468}
+  maxHealth: 0
 --- !u!212 &1365858323
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1290,6 +1292,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.43086234, y: 0.48549604}
   m_EdgeRadius: 0
+--- !u!114 &1365858326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1365858318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6d78c96fab85384bb09da1934cd90ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 1365858319}
+  maxHealth: 100
 --- !u!1 &1438696468
 GameObject:
   m_ObjectHideFlags: 0

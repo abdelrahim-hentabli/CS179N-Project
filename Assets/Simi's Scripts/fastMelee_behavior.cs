@@ -159,7 +159,7 @@ public class fastMelee_behavior : MonoBehaviour {
 
         transform.eulerAngles = rotation;
     }
-
+/*
     public void takeDamage(int damage) {
         currentHealth -= damage;
         
@@ -177,4 +177,6 @@ public class fastMelee_behavior : MonoBehaviour {
             isStunned = true;
         }
     }
+*/
 }
+
