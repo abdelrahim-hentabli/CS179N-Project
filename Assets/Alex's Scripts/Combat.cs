@@ -18,7 +18,7 @@ public class Combat : MonoBehaviour
     public GameObject boltPrefab;
 
     //Makes sure player can't stunlock enemies to death that easily
-    public float attackRate = 2f;
+    public float attackRate = 0.1f;
     float nextAttack = 0f;
 
     // Update is called once per frame
@@ -66,12 +66,10 @@ public class Combat : MonoBehaviour
     {
         //Check for enemies within the hitbox
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-        //Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(hitbox.position, hitboxRange, enemyLayers);
 
         //Damage enemy OR destroy object
         foreach (Collider2D enemy in hitEnemies)
         {
-            Debug.Log("We hit " + enemy.name);
             if(enemy.gameObject.tag == "Enemy")
             {
             	enemy.gameObject.SendMessage("takeDamage", attackDamage);

@@ -18,12 +18,11 @@ public class Bolt : MonoBehaviour
     //If bolt hits enemy, deal damage
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //Debug.Log(collision.name);
-
-        if(collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy")
         {
             collision.gameObject.SendMessage("takeDamage", boltDamage);
-            Destroy(gameObject);
+            Destroy(gameObject); //Remove bolt after it hits enemy
+
         }
     }
 }
