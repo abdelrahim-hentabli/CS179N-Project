@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     private float dashTime;
     public float startDashTime;
 
-	private Rigidbody2D body;
+	public Rigidbody2D body;
     public BoxCollider2D headCollider;
 
 	private bool facingRight = true;

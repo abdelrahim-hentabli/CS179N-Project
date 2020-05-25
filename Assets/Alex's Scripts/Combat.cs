@@ -21,6 +21,16 @@ public class Combat : MonoBehaviour
     public float attackRate = 0.1f;
     float nextAttack = 0f;
 
+    //Used to get access to PlayerController variables
+    private GameObject thePlayer;
+    private PlayerController playerController;
+
+    void Start()
+    {
+        thePlayer = GameObject.Find("Player");
+        playerController = thePlayer.GetComponent<PlayerController>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -30,6 +40,7 @@ public class Combat : MonoBehaviour
             //Melee is left mouse click
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
+                playerController.speed = 0f;
                 playAnimation();
                 nextAttack = Time.time + 1f / attackRate;
             }
@@ -75,6 +86,7 @@ public class Combat : MonoBehaviour
             	enemy.gameObject.SendMessage("takeDamage", attackDamage);
             }
         }
+        Invoke("MoveAfterAttack", 0.3f);
     }
 
     //Crossbow attack
@@ -82,6 +94,12 @@ public class Combat : MonoBehaviour
     {
         //Fire a bolt
         Instantiate(boltPrefab, firePoint.position, firePoint.rotation);
+    }
+
+    //Lets player move after attacking
+    void MoveAfterAttack()
+    {
+        playerController.speed = 2.0f;
     }
     
     //Only for melee, makes sure enemy is within range
