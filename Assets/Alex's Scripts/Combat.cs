@@ -24,6 +24,7 @@ public class Combat : MonoBehaviour
     //Used to get access to PlayerController variables
     private GameObject thePlayer;
     private PlayerController playerController;
+    private bool combatGround = true;
 
     void Start()
     {
@@ -34,20 +35,31 @@ public class Combat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Checks to see if player is grounded or not based on PlayerController script
+        combatGround = playerController.isGrounded;
+
         //Only register attacks after a certain amount of time has passed between attacks
         if (Time.time >= nextAttack)
         {
             //Melee is left mouse click
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            //If the player is on the ground
+            if (Input.GetKeyDown(KeyCode.Mouse0) && combatGround == true)
             {
                 playerController.speed = 0f;
                 playAnimation();
                 nextAttack = Time.time + 1f / attackRate;
             }
+            //If the player is in the air
+            else if (Input.GetKeyDown(KeyCode.Mouse0) && combatGround == false)
+            {
+                playAnimation();
+                nextAttack = Time.time + 1f / attackRate;
+            }
+
             //Ranged is right mouse click
             if (Input.GetKeyDown(KeyCode.Mouse1))
             {
-                playerController.speed = 0f;
+                //playerController.speed = 0f;
                 playShoot();
                 nextAttack = Time.time + 1f / attackRate;
             }
@@ -97,7 +109,7 @@ public class Combat : MonoBehaviour
         Instantiate(boltPrefab, firePoint.position, firePoint.rotation);
         Invoke("MoveAfterShoot", 0.3f);
     }
-
+    
     //Lets player move after attacking
     void MoveAfterAttack()
     {

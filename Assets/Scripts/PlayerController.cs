@@ -21,7 +21,8 @@ public class PlayerController : MonoBehaviour
 
 	private bool facingRight = true;
 
-	private bool isGrounded;
+    //private bool isGrounded;
+    public bool isGrounded;
 	public Transform groundCheck;
 	public float checkRadius;
 	public LayerMask whatIsGround;
