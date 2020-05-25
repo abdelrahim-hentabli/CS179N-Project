@@ -47,6 +47,7 @@ public class Combat : MonoBehaviour
             //Ranged is right mouse click
             if (Input.GetKeyDown(KeyCode.Mouse1))
             {
+                playerController.speed = 0f;
                 playShoot();
                 nextAttack = Time.time + 1f / attackRate;
             }
@@ -94,10 +95,17 @@ public class Combat : MonoBehaviour
     {
         //Fire a bolt
         Instantiate(boltPrefab, firePoint.position, firePoint.rotation);
+        Invoke("MoveAfterShoot", 0.3f);
     }
 
     //Lets player move after attacking
     void MoveAfterAttack()
+    {
+        playerController.speed = 2.0f;
+    }
+
+    //Lets player move after shooting
+    void MoveAfterShoot()
     {
         playerController.speed = 2.0f;
     }
