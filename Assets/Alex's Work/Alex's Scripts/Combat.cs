@@ -26,10 +26,22 @@ public class Combat : MonoBehaviour
     private PlayerController playerController;
     private bool combatGround = true;
 
+    //EXPERIMENTAL: Stamina counter to determine number of attacks
+    //Stamina should recover as long as the player has less than 100 stamina AND has waited a certain amount of time after attacking
+    //Player should not be able to attack if they have no stamina
+    public float combatStamina; //Amount of stamina
+    public float staminaTimer; //Waits between attacks before regenerating
+    public bool isRecovering; //Checks to see if player is recovering stamina
+
     void Start()
     {
         thePlayer = GameObject.Find("Player");
         playerController = thePlayer.GetComponent<PlayerController>();
+
+        //EXPERIMENTAL
+        combatStamina = 100.0f;
+        staminaTimer = 0.0f;
+        isRecovering = false;
     }
 
     // Update is called once per frame
@@ -42,16 +54,9 @@ public class Combat : MonoBehaviour
         if (Time.time >= nextAttack)
         {
             //Melee is left mouse click
-            //If the player is on the ground
-            if (Input.GetKeyDown(KeyCode.Mouse0) && combatGround == true)
+            if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                playerController.speed = 0f;
-                playAnimation();
-                nextAttack = Time.time + 1f / attackRate;
-            }
-            //If the player is in the air
-            else if (Input.GetKeyDown(KeyCode.Mouse0) && combatGround == false)
-            {
+                if (combatGround == true) { playerController.speed = 0f; } //If player is on the ground, stop moving
                 playAnimation();
                 nextAttack = Time.time + 1f / attackRate;
             }
@@ -59,7 +64,7 @@ public class Combat : MonoBehaviour
             //Ranged is right mouse click
             if (Input.GetKeyDown(KeyCode.Mouse1))
             {
-                //playerController.speed = 0f;
+                if (combatGround == true) { playerController.speed = 0f; } //If player is on the ground, stop moving
                 playShoot();
                 nextAttack = Time.time + 1f / attackRate;
             }
