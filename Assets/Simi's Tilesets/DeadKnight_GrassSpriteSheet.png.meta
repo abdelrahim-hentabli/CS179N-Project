@@ -8,6 +8,8 @@ TextureImporter:
     21300006: DeadKnight_GrassSpriteSheet_3
     21300008: DeadKnight_GrassSpriteSheet_4
     21300010: DeadKnight_GrassSpriteSheet_5
+    21300012: DeadKnight_GrassSpriteSheet_6
+    21300014: DeadKnight_GrassSpriteSheet_7
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -115,7 +117,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1549c7febee320046b09d8505ae30228
+      spriteID: a1c85d058a75263429c3642811ae553d
       vertices: []
       indices: 
       edges: []
@@ -135,7 +137,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 71c97ae8b58ef6c4f8ad4355e959185e
+      spriteID: da8388049d2ff2f43b3acf912853a24c
       vertices: []
       indices: 
       edges: []
@@ -155,13 +157,33 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6470338b25e24d54589a3e9c2f292a71
+      spriteID: 6064112581861ee43b30fd66e978ed49
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
       name: DeadKnight_GrassSpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 222
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84ab93ef63d9b7d49ace08c9e1dafa61
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DeadKnight_GrassSpriteSheet_4
       rect:
         serializedVersion: 2
         x: 0
@@ -175,13 +197,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e43cf2152f1cb843b9a6404782c8346
+      spriteID: 46be450d0f36423439c4cdd16fab987b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DeadKnight_GrassSpriteSheet_4
+      name: DeadKnight_GrassSpriteSheet_5
       rect:
         serializedVersion: 2
         x: 64
@@ -195,13 +217,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa1eccd2ff3e34b478f7cbd9a67fdffa
+      spriteID: 86ea22937a55c9e4f962e881c30cfa21
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DeadKnight_GrassSpriteSheet_5
+      name: DeadKnight_GrassSpriteSheet_6
       rect:
         serializedVersion: 2
         x: 128
@@ -215,7 +237,27 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9bdae5773c162b9439ee46053eaa7e2e
+      spriteID: 3d653208766087b409d5bf4d3e9c7a29
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DeadKnight_GrassSpriteSheet_7
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 158
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 463afd44647379d4e804eef77bad0cf4
       vertices: []
       indices: 
       edges: []
@@ -223,7 +265,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 4a73feb2205a5494eba7f51f1d3c2ee2
+    spriteID: 07dbcf3c494e6d448acfc008634aa2d3
     vertices: []
     indices: 
     edges: []
