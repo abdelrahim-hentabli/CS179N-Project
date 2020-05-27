@@ -29,9 +29,10 @@ public class Combat : MonoBehaviour
     //EXPERIMENTAL: Stamina counter to determine number of attacks
     //Stamina should recover as long as the player has less than 100 stamina AND has waited a certain amount of time after attacking
     //Player should not be able to attack if they have no stamina
-    public float combatStamina; //Amount of stamina
-    public float staminaTimer; //Waits between attacks before regenerating
-    public bool isRecovering; //Checks to see if player is recovering stamina
+    //public float combatStamina; //Amount of stamina
+    //public float staminaTimer; //Waits between attacks before regenerating
+    //public bool hasStamina; //Does the player have stamina?
+    //public bool isRecovering; //Checks to see if player is recovering stamina
 
     void Start()
     {
@@ -39,9 +40,10 @@ public class Combat : MonoBehaviour
         playerController = thePlayer.GetComponent<PlayerController>();
 
         //EXPERIMENTAL
-        combatStamina = 100.0f;
-        staminaTimer = 0.0f;
-        isRecovering = false;
+        //combatStamina = 100.0f;
+        //staminaTimer = 0.0f;
+        //isRecovering = false;
+        //hasStamina = true;
     }
 
     // Update is called once per frame
