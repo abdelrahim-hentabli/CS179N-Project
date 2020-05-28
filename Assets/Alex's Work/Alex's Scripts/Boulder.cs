@@ -24,18 +24,15 @@ public class Boulder : MonoBehaviour
     }
 
     //Determines whether boulder falls straight down or rolls towards the starting point
-    //Never rolls at a diagonal
     void Roll()
     {
         if (grounded == true)
         {
-            Debug.Log("Boulder rolling on ground!");
             Vector2 destinationPosition = new Vector2(destination.position.x, transform.position.y);
             transform.position = Vector2.MoveTowards(transform.position, destinationPosition, rollSpeed * Time.deltaTime);
         }
         else
         {
-            Debug.Log("Boulder falling!");
             Vector2 destinationPosition = new Vector2(0, -transform.position.y);
             transform.position = Vector2.MoveTowards(transform.position, destinationPosition, rollSpeed * Time.deltaTime);
         }
@@ -64,6 +61,7 @@ public class Boulder : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("Boulder hit player");
+            rollSpeed = 0f;
             Destroy(trigger);
             Destroy(boulderCollider);
             anim.SetTrigger("HitPlayer");
