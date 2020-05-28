@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Combat : MonoBehaviour
 {
+	//Health variables
+	public int maxHealth;
+	private int currentHealth;
+
     //Melee variables
     public Animator attack;
     public Transform attackPoint;
@@ -20,6 +24,12 @@ public class Combat : MonoBehaviour
     //Makes sure player can't stunlock enemies to death that easily
     public float attackRate = 0.1f;
     float nextAttack = 0f;
+
+    // Start is called before the first frame update
+    void Awake()
+    {
+    	currentHealth = maxHealth;
+    }
 
     // Update is called once per frame
     void Update()
@@ -92,6 +102,14 @@ public class Combat : MonoBehaviour
             return;
         }
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    }
+
+    public void TakeDamage(int damage)
+    {
+    	if(currentHealth > 0)
+    	{
+    		currentHealth -= damage;
+    	}
     }
 /*
     void OnTriggerEnter2D(Collider2D hitInfo) {

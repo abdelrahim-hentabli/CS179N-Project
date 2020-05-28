@@ -20,13 +20,14 @@ public class TankBehavior : MonoBehaviour
     public Collider2D body;
     public int maxHealth;
     public int currentHealth;
+    public bool attackMode;
     #endregion
 
     #region Private Variables
     private RaycastHit2D hit;
     private Animator anim;
     private float distance; //store the distance betwn enemy and player
-    private bool attackMode;
+    //private bool attackMode;
     private bool cooling; //check if enemy is cooling after attack
     private float intTimer;
     #endregion
