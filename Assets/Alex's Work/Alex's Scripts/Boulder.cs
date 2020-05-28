@@ -60,13 +60,19 @@ public class Boulder : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Boulder hit player");
-            rollSpeed = 0f;
-            Destroy(trigger);
-            Destroy(boulderCollider);
-            anim.SetTrigger("HitPlayer");
-            Invoke("DestroyBoulder", 0.80f);
+            PlayBoulderBreak(); //This function is needed. The boulder also breaks when it enters a specific trigger box, but
+                                //that is written in another script.
         }
+    }
+
+    void PlayBoulderBreak()
+    {
+        Debug.Log("Boulder hit player");
+        rollSpeed = 0f;
+        Destroy(trigger);
+        Destroy(boulderCollider);
+        anim.SetTrigger("HitPlayer");
+        Invoke("DestroyBoulder", 0.80f);
     }
 
     //Destroy the boulder object
