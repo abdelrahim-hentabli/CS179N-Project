@@ -10,7 +10,7 @@ public class Boulder : MonoBehaviour
     public CircleCollider2D boulderCollider;
     public Transform destination;
     public float rollSpeed;
-    public bool grounded = false;
+    public bool grounded;
 
     // Start is called before the first frame update
     void Start()
