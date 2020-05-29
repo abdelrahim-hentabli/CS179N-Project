@@ -1,10 +1,11 @@
 fileFormatVersion: 2
-guid: 2fd5cd857b4519d41af3dd2354645612
+guid: af43b74a9ab0e594682a3e7cd4f09e39
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Enemy_Skull_Hit_0
-    21300002: Enemy_Skull_Hit_1
-    21300004: Enemy_Skull_Hit_2
+    21300000: Dead Knight Hit_0
+    21300002: Dead Knight Hit_1
+    21300004: Dead Knight Hit_2
+    21300006: Dead Knight Hit_3
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -66,7 +67,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -77,7 +78,18 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -87,7 +99,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Enemy_Skull_Hit_0
+      name: Dead Knight Hit_0
       rect:
         serializedVersion: 2
         x: 0
@@ -101,13 +113,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6b8aa2e8319eb448aa38acb72e06874
+      spriteID: 6906add1eca71114da3dd41dcf29bb8d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy_Skull_Hit_1
+      name: Dead Knight Hit_1
       rect:
         serializedVersion: 2
         x: 64
@@ -121,13 +133,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 56a16d71e0a4eba469827db605dcb25e
+      spriteID: af6a6b08eb00bf84aac43711f87958b7
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy_Skull_Hit_2
+      name: Dead Knight Hit_2
       rect:
         serializedVersion: 2
         x: 0
@@ -141,7 +153,27 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 65a2e8dbc7cfe77468647b9c5237a126
+      spriteID: 385320a81ec3acc4282402d461278e48
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dead Knight Hit_3
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02ad0559bef6cbd49a00ff59f1ed6817
       vertices: []
       indices: 
       edges: []
@@ -149,7 +181,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: c12dddc56295b554391fefd5c9e7169b
+    spriteID: 4c7c7c96fdb2fdd419cbf434e0ecc96c
     vertices: []
     indices: 
     edges: []

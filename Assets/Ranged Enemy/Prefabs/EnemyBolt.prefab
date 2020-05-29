@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5348940513118894652}
   - component: {fileID: 528999580027007123}
   - component: {fileID: 114589900117370652}
+  - component: {fileID: 114887373009955262}
   m_Layer: 12
   m_Name: EnemyBolt
   m_TagString: Untagged
@@ -141,3 +142,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bedde5a62f11163459c9d225539d4d1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114887373009955262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8922459149746937761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c918775e5b600c439da3e618371e9bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxDamage: 10

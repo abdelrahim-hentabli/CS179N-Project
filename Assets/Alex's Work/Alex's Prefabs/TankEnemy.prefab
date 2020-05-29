@@ -328,8 +328,10 @@ MonoBehaviour:
   head: {fileID: 2269881970405749880}
   feet: {fileID: 2269881970209713730}
   hitbox: {fileID: 2269881971537272339}
+  body: {fileID: 0}
   maxHealth: 100
   currentHealth: 0
+  attackMode: 0
 --- !u!61 &2269881971051205154
 BoxCollider2D:
   m_ObjectHideFlags: 0

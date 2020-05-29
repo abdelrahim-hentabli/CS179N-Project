@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Combat : MonoBehaviour
 {
+	//Health variables
+	public int maxHealth;
+	private int currentHealth;
+	public Animator playerAnim;
+
     //Melee variables
     public Animator attack;
     public Transform attackPoint;
@@ -33,7 +38,7 @@ public class Combat : MonoBehaviour
     //public float staminaTimer; //Waits between attacks before regenerating
     //public bool hasStamina; //Does the player have stamina?
     //public bool isRecovering; //Checks to see if player is recovering stamina
-
+	// Start is called before the first frame update
     void Start()
     {
         thePlayer = GameObject.Find("Player");
@@ -44,6 +49,12 @@ public class Combat : MonoBehaviour
         //staminaTimer = 0.0f;
         //isRecovering = false;
         //hasStamina = true;
+    }
+
+    void Awake()
+    {
+    	currentHealth = maxHealth;
+
     }
 
     // Update is called once per frame
@@ -70,6 +81,11 @@ public class Combat : MonoBehaviour
                 playShoot();
                 nextAttack = Time.time + 1f / attackRate;
             }
+        }
+
+        if(currentHealth <= 0)
+        {
+        	playerAnim.SetBool("IsDead", true);	
         }
     }
 
@@ -137,6 +153,22 @@ public class Combat : MonoBehaviour
             return;
         }
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    }
+
+    public void TakeDamage(int damage)
+    {
+    	if(currentHealth > 0)
+    	{
+    		playerAnim.SetTrigger("Hit");
+    		currentHealth -= damage;
+    	}
+    }
+
+    void Death()
+    {
+    	Destroy(gameObject);
+
+    	//Destroy(this.gameObject);
     }
 /*
     void OnTriggerEnter2D(Collider2D hitInfo) {
