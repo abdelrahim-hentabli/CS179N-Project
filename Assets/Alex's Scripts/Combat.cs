@@ -7,6 +7,7 @@ public class Combat : MonoBehaviour
 	//Health variables
 	public int maxHealth;
 	private int currentHealth;
+	public Animator playerAnim;
 
     //Melee variables
     public Animator attack;
@@ -49,6 +50,11 @@ public class Combat : MonoBehaviour
                 playShoot();
                 nextAttack = Time.time + 1f / attackRate;
             }
+        }
+
+        if(currentHealth <= 0)
+        {
+        	playerAnim.SetBool("IsDead", true);	
         }
     }
 
@@ -108,8 +114,16 @@ public class Combat : MonoBehaviour
     {
     	if(currentHealth > 0)
     	{
+    		playerAnim.SetTrigger("Hit");
     		currentHealth -= damage;
     	}
+    }
+
+    void Death()
+    {
+    	Destroy(gameObject);
+
+    	//Destroy(this.gameObject);
     }
 /*
     void OnTriggerEnter2D(Collider2D hitInfo) {

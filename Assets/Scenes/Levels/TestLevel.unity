@@ -3247,7 +3247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c918775e5b600c439da3e618371e9bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDamage: 10
+  maxDamage: 20
 --- !u!1 &1200957564
 GameObject:
   m_ObjectHideFlags: 0
@@ -4888,6 +4888,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  playerAnim: {fileID: 1915834149}
   attack: {fileID: 1915834149}
   attackPoint: {fileID: 288504294}
   attackRange: 0.35
