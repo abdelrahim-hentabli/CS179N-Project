@@ -4804,16 +4804,16 @@ MonoBehaviour:
   animator: {fileID: 1915834149}
   speed: 2
   jumpForce: 6
-  moveInput: 5
+  maxDashCooldown: 2
   dashSpeed: 5
-  startDashTime: 0.1
+  startDashTime: 0.25
   headCollider: {fileID: 0}
   groundCheck: {fileID: 1078654194}
   checkRadius: 0.1
   whatIsGround:
     serializedVersion: 2
     m_Bits: 1024
-  extraJumpsValue: 0
+  extraJumpsValue: 1
 --- !u!61 &1915834147
 BoxCollider2D:
   m_ObjectHideFlags: 0
