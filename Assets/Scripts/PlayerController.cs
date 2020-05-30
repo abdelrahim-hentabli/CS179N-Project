@@ -115,8 +115,8 @@ public class PlayerController : MonoBehaviour
         if(canDash == false && dashCooldown > 0.0f) {
             dashCooldown -= Time.deltaTime;
         } else if(dashCooldown <= 0.0f) {
-            Debug.Log(canDash);
-            Debug.Log(dashCooldown);
+            //Debug.Log(canDash);
+            //Debug.Log(dashCooldown);
             dashCooldown = maxDashCooldown;
             canDash = true;
         }

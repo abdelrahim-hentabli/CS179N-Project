@@ -28,7 +28,7 @@ public class Lava : MonoBehaviour
             damageTimer += Time.deltaTime;
             if (damageTimer >= 0.5f)
             {
-                Debug.Log("Taking 5 damage!");
+                //Debug.Log("Taking 5 damage!");
                 damageTimer = 0.0f;
             }
         }
@@ -38,7 +38,7 @@ public class Lava : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Stuck in lava!");
+            //Debug.Log("Stuck in lava!");
             playerController.speed = 0.5f;
             inLava = true;
         }
@@ -48,7 +48,7 @@ public class Lava : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Got out of lava!");
+            //Debug.Log("Got out of lava!");
             inLava = false;
             damageTimer = 0.0f;
             playerController.speed = 2.0f;

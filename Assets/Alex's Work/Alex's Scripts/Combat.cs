@@ -170,12 +170,4 @@ public class Combat : MonoBehaviour
 
     	//Destroy(this.gameObject);
     }
-/*
-    void OnTriggerEnter2D(Collider2D hitInfo) {
-        fastMelee_behavior fastM = hitInfo.GetComponent<fastMelee_behavior>();
-        if(fastM != null) {
-            fastM.takeDamage(attackDamage);
-        }
-    }
-*/
 }
