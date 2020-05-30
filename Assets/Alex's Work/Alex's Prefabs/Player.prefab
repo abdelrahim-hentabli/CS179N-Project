@@ -329,7 +329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af80e32eb8eb8454bb01ee925e9fb442, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 106
+  maxHealth: 100
   playerAnim: {fileID: 6044520876765588317}
   attack: {fileID: 6044520876765588317}
   attackPoint: {fileID: 6044520876245310878}

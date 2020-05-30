@@ -67,7 +67,6 @@ public class Boulder : MonoBehaviour
 
     void PlayBoulderBreak()
     {
-        Debug.Log("Boulder hit player");
         rollSpeed = 0f;
         Destroy(trigger);
         Destroy(boulderCollider);

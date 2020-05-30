@@ -11,6 +11,10 @@ public class Lava : MonoBehaviour
     private float damageTimer;
     private bool inLava;
 
+    public int lavaDamage;
+
+    private GameObject body;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -26,9 +30,10 @@ public class Lava : MonoBehaviour
         if (inLava == true)
         {
             damageTimer += Time.deltaTime;
-            if (damageTimer >= 0.5f)
+            if (damageTimer >= 1f)
             {
                 //Debug.Log("Taking 5 damage!");
+                body.SendMessageUpwards("TakeDamage", lavaDamage);
                 damageTimer = 0.0f;
             }
         }
@@ -39,6 +44,7 @@ public class Lava : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             //Debug.Log("Stuck in lava!");
+            body = collision.gameObject;
             playerController.speed = 0.5f;
             inLava = true;
         }
@@ -49,6 +55,7 @@ public class Lava : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             //Debug.Log("Got out of lava!");
+            body = null;
             inLava = false;
             damageTimer = 0.0f;
             playerController.speed = 2.0f;
