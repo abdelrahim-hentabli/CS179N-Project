@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Buff_Orb : MonoBehaviour {
 	public int multiplier = 2;
-	//public float duration = 3.0f;
 
 	void OnTriggerEnter2D(Collider2D other) {
 		if(other.gameObject.CompareTag("Player")) {
