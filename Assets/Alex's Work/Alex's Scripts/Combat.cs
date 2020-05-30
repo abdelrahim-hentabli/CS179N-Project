@@ -6,7 +6,7 @@ public class Combat : MonoBehaviour
 {
 	//Health variables
 	public int maxHealth;
-	private int currentHealth;
+	public int currentHealth;
 	public Animator playerAnim;
 
     //Melee variables
@@ -157,6 +157,11 @@ public class Combat : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if (damage > currentHealth)
+        {
+            damage = currentHealth;
+        }
+
     	if(currentHealth > 0)
     	{
     		playerAnim.SetTrigger("Hit");
