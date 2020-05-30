@@ -5129,6 +5129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 756050794}
   - component: {fileID: 756050793}
+  - component: {fileID: 756050795}
   m_Layer: 0
   m_Name: BuffOrb
   m_TagString: Untagged
@@ -5198,6 +5199,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &756050795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756050792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b6764c74f66c4d4d9fccac5bc7e3e29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &756489567
 GameObject:
   m_ObjectHideFlags: 0
@@ -8302,7 +8315,7 @@ Tilemap:
   - first: {x: 138, y: -15, z: 0}
     second:
       m_TileIndex: 1
-      m_TileSpriteIndex: 1
+      m_TileSpriteIndex: 3
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -8347,7 +8360,7 @@ Tilemap:
   - first: {x: 138, y: -10, z: 0}
     second:
       m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileSpriteIndex: 1
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -8364,14 +8377,14 @@ Tilemap:
   - m_RefCount: 0
     m_Data: {fileID: 0}
   m_TileSpriteArray:
-  - m_RefCount: 1
-    m_Data: {fileID: 21300010, guid: 0d19ed3de98fd1e458dca2fc2ef22c8f, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 21300016, guid: 0d19ed3de98fd1e458dca2fc2ef22c8f, type: 3}
-  - m_RefCount: 4
-    m_Data: {fileID: 21300008, guid: 0d19ed3de98fd1e458dca2fc2ef22c8f, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 21300010, guid: 0d19ed3de98fd1e458dca2fc2ef22c8f, type: 3}
+  - m_RefCount: 4
+    m_Data: {fileID: 21300008, guid: 0d19ed3de98fd1e458dca2fc2ef22c8f, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: 21300016, guid: 0d19ed3de98fd1e458dca2fc2ef22c8f, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 6
     m_Data:
@@ -11074,6 +11087,7 @@ GameObject:
   - component: {fileID: 1995038044}
   - component: {fileID: 1995038043}
   - component: {fileID: 1995038042}
+  - component: {fileID: 1995038045}
   m_Layer: 0
   m_Name: Orb Buff Powerup
   m_TagString: Untagged
@@ -11159,3 +11173,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1995038045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995038041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b6764c74f66c4d4d9fccac5bc7e3e29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
