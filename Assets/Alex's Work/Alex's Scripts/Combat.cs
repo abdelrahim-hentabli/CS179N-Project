@@ -21,6 +21,7 @@ public class Combat : MonoBehaviour
     public Animator shoot;
     public Transform firePoint;
     public GameObject boltPrefab;
+    public GameObject thunderboltPrefab;
 
     //Makes sure player can't stunlock enemies to death that easily
     public float attackRate = 0.1f;
@@ -81,6 +82,14 @@ public class Combat : MonoBehaviour
                 playShoot();
                 nextAttack = Time.time + 1f / attackRate;
             }
+
+            //TESTING: Used for thunderbolt
+            if (Input.GetKeyDown(KeyCode.T))
+            {
+                if (combatGround == true) { playerController.speed = 0f; }
+                playThunderbolt();
+                nextAttack = Time.time + 1f / attackRate;
+            }
         }
 
         if(currentHealth <= 0)
@@ -106,6 +115,14 @@ public class Combat : MonoBehaviour
     {
         shoot.SetTrigger("Shoot");
         Invoke("Shoot", 0.30f);
+    }
+
+    //TESTING: Launches a thunderbolt instantaneously
+    void playThunderbolt()
+    {
+        //Summon thunderbolt
+        Instantiate(thunderboltPrefab, firePoint.position, firePoint.rotation);
+        Invoke("MoveAfterShoot", 0.3f);
     }
 
     //Melee attack

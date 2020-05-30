@@ -328,7 +328,7 @@ MonoBehaviour:
   head: {fileID: 2269881970405749880}
   feet: {fileID: 2269881970209713730}
   hitbox: {fileID: 2269881971537272339}
-  body: {fileID: 0}
+  body: {fileID: 2269881971051205153}
   maxHealth: 100
   currentHealth: 0
   attackMode: 0
@@ -550,6 +550,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2269881971537272340}
   - component: {fileID: 2269881971537272341}
+  - component: {fileID: 1466624289}
   m_Layer: 15
   m_Name: Tank_Hitbox
   m_TagString: Untagged
@@ -597,3 +598,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.124124885, y: 0.13728988}
   m_EdgeRadius: 0
+--- !u!114 &1466624289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2269881971537272339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c918775e5b600c439da3e618371e9bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxDamage: 50
