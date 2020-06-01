@@ -11,7 +11,6 @@ public class Bolt : MonoBehaviour
 
     public float traveled = 0f;
     Vector2 lastPosition;
-    private bool hitWall = false;
 
     // Start is called before the first frame update
     void Start()
