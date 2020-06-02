@@ -698,7 +698,7 @@ GameObject:
   - component: {fileID: 138804254}
   - component: {fileID: 138804253}
   - component: {fileID: 138804252}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Wall2 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1442,6 +1442,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1728954500}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &579436577
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 579436578}
+  m_Layer: 9
+  m_Name: ShootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &579436578
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579436577}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.55, y: -0.89, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2145095575}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &630238656
 GameObject:
@@ -2560,7 +2590,7 @@ GameObject:
   - component: {fileID: 951270065}
   - component: {fileID: 951270064}
   - component: {fileID: 951270063}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Wall2 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4757,7 +4787,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1915834142}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.47, y: 7.4, z: 0}
+  m_LocalPosition: {x: 9.64, y: 7.88, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1078654194}
@@ -5474,6 +5504,7 @@ Transform:
   - {fileID: 764892146}
   - {fileID: 1919537190}
   - {fileID: 2005917558}
+  - {fileID: 579436578}
   m_Father: {fileID: 1436811988}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5498,6 +5529,10 @@ MonoBehaviour:
   inRange: 0
   hotZone: {fileID: 2005917557}
   triggerArea: {fileID: 1919537189}
+  player: {fileID: 1915834142}
+  firePoint: {fileID: 579436578}
+  flameProjectilePrefab: {fileID: 8061442331251288612, guid: abb240e9aa5b8c2448ffc40c4a0ffb2c,
+    type: 3}
 --- !u!114 &2145095577
 MonoBehaviour:
   m_ObjectHideFlags: 0
