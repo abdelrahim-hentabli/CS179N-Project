@@ -9,19 +9,25 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
 	public float speed;
 	public float jumpForce;
-	public float moveInput;
+	private float moveInput;
 
     private int direction;
+
+    //  Dash variables
+    public float maxDashCooldown;
+    private float dashCooldown;
+    private bool canDash;
     public float dashSpeed;
     private float dashTime;
     public float startDashTime;
 
-	private Rigidbody2D body;
+	public Rigidbody2D body;
     public BoxCollider2D headCollider;
 
 	private bool facingRight = true;
 
-	private bool isGrounded;
+    //private bool isGrounded;
+    public bool isGrounded;
 	public Transform groundCheck;
 	public float checkRadius;
 	public LayerMask whatIsGround;
@@ -36,6 +42,8 @@ public class PlayerController : MonoBehaviour
         headCollider = GetComponent<BoxCollider2D>();
    		extraJumps = extraJumpsValue;
         dashTime = startDashTime;
+        dashCooldown = maxDashCooldown;
+        canDash = true;
     }
 
     // Update is called once per frame
@@ -45,6 +53,8 @@ public class PlayerController : MonoBehaviour
         cameraPosition.z = mainCamera.transform.position.z;
         mainCamera.transform.position = cameraPosition;
         
+        DashCooldownCheck();
+
         if (direction == 0){
             if((Input.GetAxisRaw("Horizontal") > 0) && Input.GetKeyDown("k")){
                 direction = 1;
@@ -62,8 +72,13 @@ public class PlayerController : MonoBehaviour
                 }
                 body.velocity = new Vector2(moveInput * speed, body.velocity.y);
             }
-        } else {
-            Dash();  
+        } else 
+        {
+            if(canDash == true) {
+                Dash();
+            } else {
+                direction = 0;
+            }
         }   
 
         Jump();
@@ -96,12 +111,24 @@ public class PlayerController : MonoBehaviour
     	//transform.localScale = Scaler;
     }
 
+    void DashCooldownCheck() {
+        if(canDash == false && dashCooldown > 0.0f) {
+            dashCooldown -= Time.deltaTime;
+        } else if(dashCooldown <= 0.0f) {
+            //Debug.Log(canDash);
+            //Debug.Log(dashCooldown);
+            dashCooldown = maxDashCooldown;
+            canDash = true;
+        }
+    }
+
     void Dash(){
         if(dashTime <= 0){
             direction = 0;
             dashTime = startDashTime;
             body.velocity = Vector2.zero;
             animator.SetBool("IsDashing", false);
+            canDash = false;
         } else { 
             dashTime -= Time.deltaTime;
 
@@ -113,6 +140,7 @@ public class PlayerController : MonoBehaviour
                 animator.SetBool("IsDashing", true);
             }
         }
+        return;
     }
 
     void Jump(){
@@ -128,7 +156,7 @@ public class PlayerController : MonoBehaviour
         		animator.SetBool("IsJumping", false);
         		animator.SetBool("IsFalling", true);
         	}
-            extraJumps = 0;
+            //extraJumps = 0;
         }
 
         if(Input.GetButtonDown("Jump") && extraJumps > 0){
