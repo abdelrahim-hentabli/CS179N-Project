@@ -18,7 +18,7 @@ public class Tutorial_Msg : MonoBehaviour
     }
 
      IEnumerator MsgDisappear() {
-     	yield return new WaitForSeconds(7);
+     	yield return new WaitForSeconds(4);
      	Destroy(uiObject);
      	Destroy(gameObject);
      }

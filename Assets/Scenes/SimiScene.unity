@@ -6054,7 +6054,7 @@ GameObject:
   - component: {fileID: 1289702989}
   - component: {fileID: 1289702988}
   - component: {fileID: 1289702987}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Boulder_floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10581,7 +10581,7 @@ GameObject:
   - component: {fileID: 1733327918}
   - component: {fileID: 1733327917}
   - component: {fileID: 1733327916}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: After_swamp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
