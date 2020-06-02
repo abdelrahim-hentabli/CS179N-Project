@@ -18,6 +18,7 @@ TagManager:
   - Ground
   - AttackBox
   - EnemyProjectile
+  - Bonfire
   - Wall
   - 
   - Useless

@@ -1,10 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class PlayerController : MonoBehaviour
 {
     public Camera mainCamera;
+
+    public GameObject HUDObject;
+    private HUD hud;
 
     public Animator animator;
 	public float speed;
@@ -27,7 +31,9 @@ public class PlayerController : MonoBehaviour
 	private bool facingRight = true;
 
     //private bool isGrounded;
-    public bool isGrounded;
+	public bool isGrounded;
+    public bool isCrouched;
+
 	public Transform groundCheck;
 	public float checkRadius;
 	public LayerMask whatIsGround;
@@ -38,12 +44,17 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        hud = HUDObject.GetComponent<HUD>();
         body = GetComponent<Rigidbody2D>();
         headCollider = GetComponent<BoxCollider2D>();
    		extraJumps = extraJumpsValue;
         dashTime = startDashTime;
         dashCooldown = maxDashCooldown;
         canDash = true;
+        //Camera stuff
+        Vector3 cameraPosition = transform.position;
+        cameraPosition.z = mainCamera.transform.position.z;
+        mainCamera.transform.position = cameraPosition;
     }
 
     // Update is called once per frame
@@ -55,6 +66,15 @@ public class PlayerController : MonoBehaviour
         
         DashCooldownCheck();
 
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            save();
+        }
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            load();
+        }
         if (direction == 0){
             if((Input.GetAxisRaw("Horizontal") > 0) && Input.GetKeyDown("k")){
                 direction = 1;
@@ -62,11 +82,13 @@ public class PlayerController : MonoBehaviour
                 direction = 2;
             } else if(Input.GetKey("s") && isGrounded){
                 if(Input.GetKeyDown("s")){
+                    isCrouched = true;
                     animator.SetBool("IsCrouching", true);
                     headCollider.enabled = false;
                 }
             } else{
                 if(Input.GetKeyUp("s") || !isGrounded){
+                    isCrouched = false;
                     animator.SetBool("IsCrouching", false);
                     headCollider.enabled = true;
                 }
@@ -166,5 +188,32 @@ public class PlayerController : MonoBehaviour
             body.velocity = Vector2.up * jumpForce;
             animator.SetBool("IsJumping", true);
         }
+    }
+
+    void save()
+    {
+        string path = Application.dataPath + "/save.sav";
+        string saveData = this.transform.position.ToString() + "\n" + hud.currentLevelTime.ToString() + "\n";
+        File.WriteAllText(path, saveData);
+        hud.save();
+    }
+
+    void load()
+    {
+        hud.currentHealth = hud.maxHealth;
+        hud.healthPotions = HUD.HEALTH_POTION_STARTING_AMOUNT;
+        string path = Application.dataPath + "/save.sav";
+        StreamReader load_file = new StreamReader(path);
+        string temp;
+        temp = load_file.ReadLine();
+        temp = temp.Substring(1, temp.Length - 2);
+        string[] tempArray = temp.Split(',');
+        Vector3 tempVec = new Vector3(
+            float.Parse(tempArray[0]),
+            float.Parse(tempArray[1]),
+            float.Parse(tempArray[2]));
+        this.transform.position = tempVec;
+        hud.currentLevelTime = float.Parse(load_file.ReadLine());
+        hud.Refresh();
     }
 }

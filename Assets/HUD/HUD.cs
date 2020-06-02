@@ -7,16 +7,25 @@ using UnityEngine.SceneManagement;
 
 public class HUD : MonoBehaviour
 {
-    const int HEALTH_POTION_STARTING_AMOUNT = 5;
+    public const int HEALTH_POTION_STARTING_AMOUNT = 5;
     const int BOMB_STARTING_AMOUNT = 3;
-    const int NUMBER_OF_QUICK_ITEMS = 1;
+    const int SCROLL_STARTING_AMOUNT = 1;
+    const int NUMBER_OF_QUICK_ITEMS = 2;
     const int MAX_BOLTS = 6;
+    const int HUD_ELEMENTS = 4;
+
+    public Text levelTimer;
 
     public Slider Healthbar;
     public Text healthPotionAmount;
     public Image[] bolts = new Image[6];
+    public Image[] quickItems = new Image[2];
+    public GameObject gameOverScreen;
+    public Text Saving;
 
-    public Text bombAmount;
+    public GameObject[] hudElements = new GameObject[4];
+
+    public Text quickItemAmount;
 
     public int maxHealth;
     public int currentHealth;
@@ -25,13 +34,25 @@ public class HUD : MonoBehaviour
 
     public int currentQuickItem;
 
-    public int bombs;
+    public int[] itemAmount;
 
     public int boltAmount;
-    
+
+    bool alive;
+
+    public float currentLevelTime;
+
+    private bool saving;
+    private float savingTimer;
+
     // Start is called before the first frame update
     void Start()
     {
+        Saving.enabled = false;
+        saving = false;
+        currentLevelTime = 0.0f;
+        alive = true;
+        gameOverScreen.SetActive(false);
         potionStrength = 35;
         maxHealth = 100;
         currentHealth = 100;
@@ -40,11 +61,18 @@ public class HUD : MonoBehaviour
 
         currentQuickItem = 0;
 
-        bombs = BOMB_STARTING_AMOUNT;
-        bombAmount.text = bombs.ToString();
+        itemAmount = new int[2];
+        itemAmount[0] = BOMB_STARTING_AMOUNT;
+        itemAmount[1] = SCROLL_STARTING_AMOUNT;
+        quickItemAmount.text = itemAmount[currentQuickItem].ToString();
 
         boltAmount = MAX_BOLTS;
 
+        for (int i = 0; i < NUMBER_OF_QUICK_ITEMS; i++)
+        {
+            quickItems[i].enabled = false;
+        }
+        quickItems[currentQuickItem].enabled = true;
         Healthbar.minValue = 0;
         Healthbar.maxValue = maxHealth;
         Healthbar.value = currentHealth;
@@ -53,36 +81,55 @@ public class HUD : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (saving)
         {
-            onHealthPotion();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Mouse1))
-        {
-            onCrossbow();
-        }
-
-
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            if(currentQuickItem == 0)
+            savingTimer += Time.deltaTime;
+            if (savingTimer > 3.0f)
             {
-                onBomb();
+                saving = false;
+                Saving.enabled = false;
             }
         }
-        if (Input.GetKeyDown(KeyCode.Q))
+        currentLevelTime += Time.deltaTime;
+        int currentMinutes = (int)(currentLevelTime / 60);
+        levelTimer.text = currentMinutes.ToString("00") +":" + (currentLevelTime - 60 * currentMinutes).ToString("00.00");
+        if (alive)
         {
-            currentQuickItem++;
-            currentQuickItem %= NUMBER_OF_QUICK_ITEMS;
-            updateQuickItems();
-        }
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            onHit(22);
-        }
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                onHealthPotion();
+            }
 
-        Healthbar.value = currentHealth;
+            if (Input.GetKeyDown(KeyCode.Mouse1))
+            {
+                onCrossbow();
+            }
+
+
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                if (itemAmount[currentQuickItem] > 0)
+                {
+                    itemAmount[currentQuickItem]--;
+                    quickItemAmount.text = itemAmount[currentQuickItem].ToString();
+                    if (currentQuickItem == 0)
+                    {
+                        onBomb();
+                    }
+                }
+
+            }
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                updateQuickItems();
+            }
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                onHit(22);
+            }
+
+            Healthbar.value = currentHealth;
+        }
     }
 
     public void onHit(int damage)
@@ -90,7 +137,7 @@ public class HUD : MonoBehaviour
         currentHealth -= damage;
         if(currentHealth <= 0)
         {
-            currentHealth = 100;
+            onDeath();
         }
         Healthbar.value = currentHealth;
     }
@@ -112,11 +159,7 @@ public class HUD : MonoBehaviour
 
     public void onBomb()
     {
-        if(bombs > 0)
-        {
-            bombs--;
-            bombAmount.text = bombs.ToString();
-        }
+        
     }
 
     public void replenishHealthPotions()
@@ -127,7 +170,11 @@ public class HUD : MonoBehaviour
 
     public void updateQuickItems()
     {
-         
+        quickItems[currentQuickItem].enabled = false;
+        currentQuickItem++;
+        currentQuickItem %= NUMBER_OF_QUICK_ITEMS;
+        quickItems[currentQuickItem].enabled = true;
+        quickItemAmount.text = itemAmount[currentQuickItem].ToString();
     }
 
     public void onCrossbow()
@@ -137,5 +184,36 @@ public class HUD : MonoBehaviour
             boltAmount--;
             bolts[boltAmount].enabled = false;
         }
+    }
+
+    public void onDeath()
+    {
+        for(int i = 0; i < HUD_ELEMENTS; i++)
+        {
+            hudElements[i].SetActive(false);
+        }
+        gameOverScreen.SetActive(true);
+        alive = false;
+    }
+
+    public void Refresh()
+    {
+        for (int i = 0; i < HUD_ELEMENTS; i++)
+        {
+            hudElements[i].SetActive(true);
+        }
+        gameOverScreen.SetActive(false);
+        alive = true;
+        quickItemAmount.text = itemAmount[currentQuickItem].ToString();
+        healthPotionAmount.text = healthPotions.ToString();
+        Healthbar.value = currentHealth;
+        int currentMinutes = (int)(currentLevelTime / 60);
+        levelTimer.text = currentMinutes.ToString("00") +":" + (currentLevelTime - 60 * currentMinutes).ToString("00.00");
+    }
+    public void save()
+    {
+        saving = true;
+        Saving.enabled = true;
+        savingTimer = 0.0f;
     }
 }
