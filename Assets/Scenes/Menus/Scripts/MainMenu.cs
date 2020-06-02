@@ -16,7 +16,7 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
     	Time.timeScale = 1.0f;
-    	SceneManager.LoadScene("TestLevel");
+    	SceneManager.LoadScene("SimiScene");
     }
 
     public void LoadSettingsMenu()
