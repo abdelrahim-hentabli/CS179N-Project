@@ -10,7 +10,7 @@ public class HUD : MonoBehaviour
     public const int HEALTH_POTION_STARTING_AMOUNT = 5;
     const int BOMB_STARTING_AMOUNT = 3;
     const int SCROLL_STARTING_AMOUNT = 1;
-    const int NUMBER_OF_QUICK_ITEMS = 2;
+    const int NUMBER_OF_QUICK_ITEMS = 3;
     const int MAX_BOLTS = 6;
     const int HUD_ELEMENTS = 4;
 
@@ -66,9 +66,10 @@ public class HUD : MonoBehaviour
 
         currentQuickItem = 0;
 
-        itemAmount = new int[2];
+        itemAmount = new int[3];
         itemAmount[0] = BOMB_STARTING_AMOUNT;
         itemAmount[1] = SCROLL_STARTING_AMOUNT;
+        itemAmount[2] = 0;
         quickItemAmount.text = itemAmount[currentQuickItem].ToString();
 
         boltAmount = MAX_BOLTS;
@@ -179,6 +180,11 @@ public class HUD : MonoBehaviour
     }
 
     public void onThunder()
+    {
+
+    }
+
+    public void onBuff()
     {
 
     }
