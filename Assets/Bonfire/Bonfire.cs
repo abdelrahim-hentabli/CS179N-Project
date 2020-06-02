@@ -10,7 +10,7 @@ public class Bonfire : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timer = 0.0f;
+        timer = 10f;
     }
 
     // Update is called once per frame
