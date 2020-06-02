@@ -6,7 +6,7 @@ public class Bonfire : MonoBehaviour
 {
     private float timer;
 
-    public GameObject[] enemies = new GameObject[4];
+    public GameObject[] enemies = new GameObject[3];
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +22,7 @@ public class Bonfire : MonoBehaviour
     void OnTriggerStay2D(Collider2D collision)
     {
         PlayerController playerController = collision.gameObject.GetComponent<PlayerController>();
-        if (playerController.isGrounded && playerController.isCrouched && timer >= 10f)
+        if (playerController != null && playerController.isGrounded && playerController.isCrouched && timer >= 10f)
         {
             timer = 0.0f;
             collision.gameObject.SendMessage("save");
@@ -32,7 +32,7 @@ public class Bonfire : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         PlayerController playerController = collision.gameObject.GetComponent<PlayerController>();
-        if (playerController.isGrounded && playerController.isCrouched && timer >= 10f)
+        if (playerController != null && playerController.isGrounded && playerController.isCrouched && timer >= 10f)
         {
             timer = 0.0f;
             collision.gameObject.SendMessage("save");

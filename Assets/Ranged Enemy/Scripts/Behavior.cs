@@ -156,10 +156,10 @@ public class Behavior : MonoBehaviour
 
     void reanimate()
     {
+        this.enabled = true;
         animator.SetBool("Attack", false);
         animator.SetBool("Move", true);
         animator.SetBool("Attack", false);
-        this.enabled = true;
         currentHealth = maxHealth;
         transform.position = startPosition;
         pauseTimer = 0;

@@ -9,6 +9,9 @@ public class Combat : MonoBehaviour
 	public int currentHealth;
 	public Animator playerAnim;
 
+    public GameObject HUDObject;
+    private HUD hud;
+
     //Melee variables
     public Animator attack;
     public Transform attackPoint;
@@ -42,6 +45,8 @@ public class Combat : MonoBehaviour
 	// Start is called before the first frame update
     void Start()
     {
+        hud = HUDObject.GetComponent<HUD>();
+
         thePlayer = GameObject.Find("Player");
         playerController = thePlayer.GetComponent<PlayerController>();
 
@@ -183,12 +188,13 @@ public class Combat : MonoBehaviour
     	{
     		playerAnim.SetTrigger("Hit");
     		currentHealth -= damage;
+            hud.onHit(damage);
     	}
     }
 
     void Death()
     {
-    	Destroy(gameObject);
+    	//Destroy(gameObject);
 
     	//Destroy(this.gameObject);
     }

@@ -27,6 +27,9 @@ public class HUD : MonoBehaviour
 
     public Text quickItemAmount;
 
+    public GameObject player;
+    private Combat playerCombat;
+
     public int maxHealth;
     public int currentHealth;
     public int healthPotions;
@@ -48,6 +51,8 @@ public class HUD : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerCombat = player.GetComponent<Combat>();
+
         Saving.enabled = false;
         saving = false;
         currentLevelTime = 0.0f;
@@ -144,10 +149,20 @@ public class HUD : MonoBehaviour
 
     public void  onHealthPotion()
     {
+        int healAmount;
         if(healthPotions > 0)
         {
             healthPotions--;
-            currentHealth += potionStrength;
+            if(currentHealth + potionStrength > maxHealth)
+            {
+                healAmount = maxHealth - currentHealth;
+            }
+            else
+            {
+                healAmount = potionStrength;
+            }
+            currentHealth += healAmount;
+            playerCombat.TakeDamage(-healAmount);
             if(currentHealth > maxHealth)
             {
                 currentHealth = maxHealth;
