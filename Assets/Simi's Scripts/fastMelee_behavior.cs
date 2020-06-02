@@ -161,6 +161,11 @@ public class fastMelee_behavior : MonoBehaviour {
 
         transform.eulerAngles = rotation;
     }
+
+    public void reanimate()
+    {
+
+    }
 /*
     public void takeDamage(int damage) {
         currentHealth -= damage;
