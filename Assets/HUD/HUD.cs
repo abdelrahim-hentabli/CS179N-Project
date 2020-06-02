@@ -207,6 +207,7 @@ public class HUD : MonoBehaviour
         {
             hudElements[i].SetActive(false);
         }
+        player.SetActive(false);
         gameOverScreen.SetActive(true);
         alive = false;
     }
