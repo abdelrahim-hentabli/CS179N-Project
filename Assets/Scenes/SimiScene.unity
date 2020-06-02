@@ -252,12 +252,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &81454092 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6044520876765588326, guid: b975c62f19fbbc740aa8a91087df26ce,
-    type: 3}
-  m_PrefabInstance: {fileID: 2073406458}
-  m_PrefabAsset: {fileID: 0}
 --- !u!61 &81454097 stripped
 BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 6044520876765588315, guid: b975c62f19fbbc740aa8a91087df26ce,
@@ -2136,7 +2130,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Bonfires allow you to save your
 
-    progress.'
+    progress by crouching with "S".'
 --- !u!222 &316736802
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6905,7 +6899,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 81454092}
+      objectReference: {fileID: 0}
     - target: {fileID: 219050183470295218, guid: 13a3d6ab287faa04c8de64ae80556d95,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -7075,7 +7069,7 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 81454092}
+      objectReference: {fileID: 0}
     - target: {fileID: 8692232741799071702, guid: 13a3d6ab287faa04c8de64ae80556d95,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -14811,7 +14805,7 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 81454092}
+      objectReference: {fileID: 0}
     - target: {fileID: 1172629639648810753, guid: a0e07a54546d17e42ae9219decb395c3,
         type: 3}
       propertyPath: m_LocalPosition.x
