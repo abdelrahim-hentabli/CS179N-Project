@@ -16,6 +16,7 @@ public class Flame_Projectile : MonoBehaviour
     {	
     	if (collision.gameObject.tag == "PlayerHitbox" || collision.gameObject.layer == 13 || collision.gameObject.tag == "Wall")	
     	{
+            Debug.Log(collision.gameObject.name);
     		Destroy(gameObject);
     	}
     }
