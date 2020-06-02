@@ -2078,6 +2078,11 @@ PrefabInstance:
       propertyPath: rightLimit
       value: 
       objectReference: {fileID: 1467581757}
+    - target: {fileID: 487803451390852903, guid: 66e7fda88770c1e4e9592a2ec3f20e21,
+        type: 3}
+      propertyPath: attackDistance
+      value: 1.2
+      objectReference: {fileID: 0}
     - target: {fileID: 487803451390852923, guid: 66e7fda88770c1e4e9592a2ec3f20e21,
         type: 3}
       propertyPath: m_Name
@@ -6334,6 +6339,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &847193717 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 487803451362881534, guid: 66e7fda88770c1e4e9592a2ec3f20e21,
+    type: 3}
+  m_PrefabInstance: {fileID: 282328827}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &847193719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 847193717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c918775e5b600c439da3e618371e9bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxDamage: 20
 --- !u!1 &881663580
 GameObject:
   m_ObjectHideFlags: 0
