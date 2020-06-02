@@ -5,6 +5,8 @@ using UnityEngine;
 public class Bonfire : MonoBehaviour
 {
     private float timer;
+
+    public GameObject[] enemies = new GameObject[4];
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +26,7 @@ public class Bonfire : MonoBehaviour
         {
             timer = 0.0f;
             collision.gameObject.SendMessage("save");
+            reanimateAll();
         }
     }
     void OnTriggerEnter2D(Collider2D collision)
@@ -33,6 +36,17 @@ public class Bonfire : MonoBehaviour
         {
             timer = 0.0f;
             collision.gameObject.SendMessage("save");
+            reanimateAll();
+            
+        }
+    }
+
+    void reanimateAll()
+    {
+        for (int i = 0; i < enemies.Length; i++)
+        {
+            enemies[i].SetActive(true);
+            enemies[i].SendMessage("reanimate");
         }
     }
 }
