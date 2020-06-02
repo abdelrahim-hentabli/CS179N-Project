@@ -200,6 +200,9 @@ public class PlayerController : MonoBehaviour
 
     void load()
     {
+        Combat combat = this.GetComponent<Combat>();
+        combat.currentHealth = combat.maxHealth;
+        this.enabled = true;
         hud.currentHealth = hud.maxHealth;
         hud.healthPotions = HUD.HEALTH_POTION_STARTING_AMOUNT;
         string path = Application.dataPath + "/save.sav";

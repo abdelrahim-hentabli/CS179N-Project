@@ -147,6 +147,7 @@ public class HUD : MonoBehaviour
         Healthbar.value = currentHealth;
     }
 
+
     public void  onHealthPotion()
     {
         int healAmount;
@@ -175,6 +176,11 @@ public class HUD : MonoBehaviour
     public void onBomb()
     {
         
+    }
+
+    public void onThunder()
+    {
+
     }
 
     public void replenishHealthPotions()
@@ -207,6 +213,7 @@ public class HUD : MonoBehaviour
         {
             hudElements[i].SetActive(false);
         }
+        player.SetActive(false);
         gameOverScreen.SetActive(true);
         alive = false;
     }
