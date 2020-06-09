@@ -183,7 +183,7 @@ public class HUD : MonoBehaviour
 
     public void onBomb()
     {
-        
+        //TODO
     }
 
     public void onThunder()

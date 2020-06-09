@@ -7805,6 +7805,16 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 121416194}
+    - target: {fileID: 8246368945409897384, guid: 13a3d6ab287faa04c8de64ae80556d95,
+        type: 3}
+      propertyPath: BuffColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246368945409897384, guid: 13a3d6ab287faa04c8de64ae80556d95,
+        type: 3}
+      propertyPath: HealthBarColor.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8692232741799071702, guid: 13a3d6ab287faa04c8de64ae80556d95,
         type: 3}
       propertyPath: m_AnchoredPosition.y
