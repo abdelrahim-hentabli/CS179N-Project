@@ -89,12 +89,14 @@ public class Combat : MonoBehaviour
             }
 
             //TESTING: Used for thunderbolt
+            /*
             if (Input.GetKeyDown(KeyCode.T))
             {
                 if (combatGround == true) { playerController.speed = 0f; }
                 playThunderbolt();
                 nextAttack = Time.time + 1f / attackRate;
             }
+            */
         }
 
         if(currentHealth <= 0)
@@ -128,6 +130,13 @@ public class Combat : MonoBehaviour
         //Summon thunderbolt
         Instantiate(thunderboltPrefab, firePoint.position, firePoint.rotation);
         Invoke("MoveAfterShoot", 0.3f);
+    }
+
+    void thunder()
+    {
+        if (combatGround == true) { playerController.speed = 0f; }
+        playThunderbolt();
+        nextAttack = Time.time + 1f / attackRate;
     }
 
     //Melee attack
@@ -198,4 +207,11 @@ public class Combat : MonoBehaviour
 
     	//Destroy(this.gameObject);
     }
+
+    public void giveBuffItem()
+    {
+        hud.giveBuffItem();
+        
+    }
+
 }
