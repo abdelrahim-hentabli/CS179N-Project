@@ -56,7 +56,7 @@ public class BossBehavior : MonoBehaviour
             Move();
         }
 
-        if (!InsideOfLimits() && !inRange && !anim.GetCurrentAnimatorStateInfo(0).IsName("Tank_Attack"))
+        if (!InsideOfLimits() && !inRange && !anim.GetCurrentAnimatorStateInfo(0).IsName("Boss-Attack"))
         {
             SelectTarget();
         }
@@ -75,7 +75,7 @@ public class BossBehavior : MonoBehaviour
             {
                 stunned = false;
                 stunTimer = 0;
-                moveSpeed = 0.2f;
+                moveSpeed = 0.4f;
             }
         }
     }
@@ -105,7 +105,7 @@ public class BossBehavior : MonoBehaviour
     {
         anim.SetBool("canWalk", true);
 
-        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Tank_Attack"))
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Boss-Attack"))
         {
             Vector2 targetPosition = new Vector2(target.position.x, transform.position.y); //For patrolling enemies
             transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
