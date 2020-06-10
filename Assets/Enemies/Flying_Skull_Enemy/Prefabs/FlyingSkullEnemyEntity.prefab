@@ -147,6 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 7943722299633059247}
+  enemyObject: {fileID: 7943722299633059246}
   maxHealth: 100
 --- !u!61 &7943722299633059232
 BoxCollider2D:
