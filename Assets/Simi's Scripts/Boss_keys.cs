@@ -2,17 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Boss_keys : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+public class Boss_keys : MonoBehaviour {
+	public GameObject uiObject;
+
+    void Start() {
+    	uiObject.SetActive(false);    
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void OnTriggerEnter2D(Collider2D player) {
+    	if(player.gameObject.CompareTag("Player")) {
+    		uiObject.SetActive(true);
+    		PickupKey(player);
+    	}
     }
+
+    void PickupKey(Collider2D player) {
+    	GetComponent<SpriteRenderer>().enabled = false;
+		GetComponent<Collider2D>().enabled = false;
+    	Destroy(gameObject);
+    }
+
+
+
 }
