@@ -181,6 +181,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cec62c46b91aaf543b6a52b5e655504b, type: 3}
+--- !u!1 &47386263 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2624208637275120235, guid: 13a3d6ab287faa04c8de64ae80556d95,
+    type: 3}
+  m_PrefabInstance: {fileID: 1102522905}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &65218850
 GameObject:
   m_ObjectHideFlags: 0
@@ -14556,6 +14562,31 @@ PrefabInstance:
       propertyPath: m_Interactable
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 914239738960646090, guid: 13a3d6ab287faa04c8de64ae80556d95,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -34.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 914239738960646090, guid: 13a3d6ab287faa04c8de64ae80556d95,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 914239738960646090, guid: 13a3d6ab287faa04c8de64ae80556d95,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 914239738960646090, guid: 13a3d6ab287faa04c8de64ae80556d95,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2624208637275120235, guid: 13a3d6ab287faa04c8de64ae80556d95,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3389573556055831826, guid: 13a3d6ab287faa04c8de64ae80556d95,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -14690,6 +14721,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7463388670309346729, guid: 13a3d6ab287faa04c8de64ae80556d95,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8246368945409897384, guid: 13a3d6ab287faa04c8de64ae80556d95,
         type: 3}
@@ -27704,6 +27740,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2277486037170313039, guid: 3664494669124e74f9ac4447471610b6,
         type: 3}
+    - target: {fileID: 6044520876765588318, guid: b975c62f19fbbc740aa8a91087df26ce,
+        type: 3}
+      propertyPath: ammoCooldown
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6044520876765588318, guid: b975c62f19fbbc740aa8a91087df26ce,
+        type: 3}
+      propertyPath: attackCooldown
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6044520876765588318, guid: b975c62f19fbbc740aa8a91087df26ce,
+        type: 3}
+      propertyPath: boltCoolDownBar
+      value: 
+      objectReference: {fileID: 47386263}
     - target: {fileID: 6044520876765588326, guid: b975c62f19fbbc740aa8a91087df26ce,
         type: 3}
       propertyPath: m_Name
