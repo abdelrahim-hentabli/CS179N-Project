@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Boss_keys : MonoBehaviour {
 	public GameObject uiObject;
+	public int numKeys = 0;
 
     void Start() {
     	uiObject.SetActive(false);    
@@ -12,6 +13,7 @@ public class Boss_keys : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D player) {
     	if(player.gameObject.CompareTag("Player")) {
     		uiObject.SetActive(true);
+    		numKeys++;
     		PickupKey(player);
     	}
     }
