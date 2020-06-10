@@ -225,7 +225,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.28638458, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -236,7 +236,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 5.2504425, y: 1}
   m_EdgeRadius: 0
 --- !u!4 &65218853
 Transform:
@@ -246,7 +246,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 65218850}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 53.99, y: -7.4, z: 2.3535156}
+  m_LocalPosition: {x: 67.59, y: -1.31, z: 2.3535156}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -13645,7 +13645,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 58.50153, y: -5.4911647}
+  m_Offset: {x: 58.50153, y: -5.175186}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -13656,7 +13656,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.0234451, y: 1.0038748}
+  m_Size: {x: 3.0234451, y: 0.37191772}
   m_EdgeRadius: 0
 --- !u!483693784 &834952506
 TilemapRenderer:
@@ -13742,10 +13742,10 @@ Tilemap:
   m_AnimatedTiles: {}
   m_TileAssetArray:
   - m_RefCount: 3
-    m_Data: {fileID: 11400000, guid: 0da19178a46207d49bc4de7df390a846, type: 2}
+    m_Data: {fileID: 11400000, guid: 7267b9467fd995241a3349c97c6f4e12, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 3
-    m_Data: {fileID: 21300000, guid: 0d19ed3de98fd1e458dca2fc2ef22c8f, type: 3}
+    m_Data: {fileID: 21300002, guid: fb9bdaea1532c7b4581e7704dab80006, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 3
     m_Data:
@@ -14855,7 +14855,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: 102.52195, y: -9.495148}
+  m_Offset: {x: 102.50726, y: -9.171869}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -14866,7 +14866,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.0314484, y: 1.0097046}
+  m_Size: {x: 3.0020828, y: 0.36314774}
   m_EdgeRadius: 0
 --- !u!483693784 &1101787592
 TilemapRenderer:
@@ -14924,8 +14924,8 @@ Tilemap:
   m_Tiles:
   - first: {x: 101, y: -10, z: 0}
     second:
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileIndex: 1
+      m_TileSpriteIndex: 1
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -14933,8 +14933,8 @@ Tilemap:
       m_ColliderType: 1
   - first: {x: 102, y: -10, z: 0}
     second:
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileIndex: 1
+      m_TileSpriteIndex: 1
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -14942,8 +14942,8 @@ Tilemap:
       m_ColliderType: 1
   - first: {x: 103, y: -10, z: 0}
     second:
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileIndex: 1
+      m_TileSpriteIndex: 1
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -14951,15 +14951,15 @@ Tilemap:
       m_ColliderType: 1
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 3
-    m_Data: {fileID: 11400000, guid: 0da19178a46207d49bc4de7df390a846, type: 2}
   - m_RefCount: 0
     m_Data: {fileID: 0}
+  - m_RefCount: 3
+    m_Data: {fileID: 11400000, guid: 7267b9467fd995241a3349c97c6f4e12, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 3
-    m_Data: {fileID: 21300000, guid: 0d19ed3de98fd1e458dca2fc2ef22c8f, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
+  - m_RefCount: 3
+    m_Data: {fileID: 21300002, guid: fb9bdaea1532c7b4581e7704dab80006, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 3
     m_Data:
@@ -15860,7 +15860,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: 58.494625, y: -5.50461}
+  m_Offset: {x: 58.494625, y: -5.1803136}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -15871,7 +15871,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.009636, y: 0.9932194}
+  m_Size: {x: 3.009636, y: 0.35452747}
   m_EdgeRadius: 0
 --- !u!483693784 &1219953461
 TilemapRenderer:
@@ -15957,10 +15957,10 @@ Tilemap:
   m_AnimatedTiles: {}
   m_TileAssetArray:
   - m_RefCount: 3
-    m_Data: {fileID: 11400000, guid: 0da19178a46207d49bc4de7df390a846, type: 2}
+    m_Data: {fileID: 11400000, guid: 7267b9467fd995241a3349c97c6f4e12, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 3
-    m_Data: {fileID: 21300000, guid: 0d19ed3de98fd1e458dca2fc2ef22c8f, type: 3}
+    m_Data: {fileID: 21300002, guid: fb9bdaea1532c7b4581e7704dab80006, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 3
     m_Data:
@@ -17232,7 +17232,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: 58.51184, y: -5.497421}
+  m_Offset: {x: 58.496468, y: -5.18439}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -17243,7 +17243,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.0440674, y: 1.025178}
+  m_Size: {x: 3.013321, y: 0.35811424}
   m_EdgeRadius: 0
 --- !u!483693784 &1397817707
 TilemapRenderer:
@@ -17329,10 +17329,10 @@ Tilemap:
   m_AnimatedTiles: {}
   m_TileAssetArray:
   - m_RefCount: 3
-    m_Data: {fileID: 11400000, guid: 0da19178a46207d49bc4de7df390a846, type: 2}
+    m_Data: {fileID: 11400000, guid: 7267b9467fd995241a3349c97c6f4e12, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 3
-    m_Data: {fileID: 21300000, guid: 0d19ed3de98fd1e458dca2fc2ef22c8f, type: 3}
+    m_Data: {fileID: 21300002, guid: fb9bdaea1532c7b4581e7704dab80006, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 3
     m_Data:
@@ -27097,12 +27097,12 @@ PrefabInstance:
     - target: {fileID: 6044520876765588312, guid: b975c62f19fbbc740aa8a91087df26ce,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.59
+      value: 53.95
       objectReference: {fileID: 0}
     - target: {fileID: 6044520876765588312, guid: b975c62f19fbbc740aa8a91087df26ce,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.94
+      value: -5.64
       objectReference: {fileID: 0}
     - target: {fileID: 6044520876765588312, guid: b975c62f19fbbc740aa8a91087df26ce,
         type: 3}
