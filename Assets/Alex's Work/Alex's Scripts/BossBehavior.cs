@@ -219,16 +219,4 @@ public class BossBehavior : MonoBehaviour
             }
         }
     }
-
-    public void reanimate()
-    {
-        this.enabled = false;
-        moveSpeed = 1;
-        currentHealth = maxHealth;
-        head.SetActive(true);
-        feet.SetActive(true);
-        hitbox.SetActive(true);
-        hotzone.SetActive(true);
-        triggerArea.SetActive(true);
-    }
 }
