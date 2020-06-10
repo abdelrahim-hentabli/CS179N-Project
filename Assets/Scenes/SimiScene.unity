@@ -8838,7 +8838,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 333904890}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 19.5, y: 0, z: 0}
+  m_LocalPosition: {x: 19.5, y: -1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1990920938}
@@ -8857,7 +8857,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.028133392, y: -1.4736638}
+  m_Offset: {x: -0.0038728714, y: -0.18001264}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -8868,7 +8868,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.0667343, y: 1.02806}
+  m_Size: {x: 2.0027218, y: 0.3507117}
   m_EdgeRadius: 0
 --- !u!483693784 &333904893
 TilemapRenderer:
@@ -8924,19 +8924,19 @@ Tilemap:
   m_GameObject: {fileID: 333904890}
   m_Enabled: 1
   m_Tiles:
-  - first: {x: -1, y: -2, z: 0}
+  - first: {x: -1, y: -1, z: 0}
     second:
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileIndex: 1
+      m_TileSpriteIndex: 1
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
       m_TileFlags: 1
       m_ColliderType: 1
-  - first: {x: 0, y: -2, z: 0}
+  - first: {x: 0, y: -1, z: 0}
     second:
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileIndex: 1
+      m_TileSpriteIndex: 1
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -8944,11 +8944,15 @@ Tilemap:
       m_ColliderType: 1
   m_AnimatedTiles: {}
   m_TileAssetArray:
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 2
-    m_Data: {fileID: 11400000, guid: 0da19178a46207d49bc4de7df390a846, type: 2}
+    m_Data: {fileID: 11400000, guid: 7267b9467fd995241a3349c97c6f4e12, type: 2}
   m_TileSpriteArray:
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 2
-    m_Data: {fileID: 21300000, guid: 0d19ed3de98fd1e458dca2fc2ef22c8f, type: 3}
+    m_Data: {fileID: 21300002, guid: fb9bdaea1532c7b4581e7704dab80006, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 2
     m_Data:
@@ -14376,7 +14380,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1072631285}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -24784,7 +24788,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1913703198}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 19.5, y: 0, z: 0}
+  m_LocalPosition: {x: 18.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1990920938}
@@ -24803,7 +24807,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.9960556, y: -0.4990747}
+  m_Offset: {x: 2.9960556, y: -0.17570794}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -24814,7 +24818,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.0131226, y: 1.0285592}
+  m_Size: {x: 2.0131226, y: 0.3818257}
   m_EdgeRadius: 0
 --- !u!483693784 &1913703201
 TilemapRenderer:
@@ -24891,10 +24895,10 @@ Tilemap:
   m_AnimatedTiles: {}
   m_TileAssetArray:
   - m_RefCount: 2
-    m_Data: {fileID: 11400000, guid: 0da19178a46207d49bc4de7df390a846, type: 2}
+    m_Data: {fileID: 11400000, guid: 7267b9467fd995241a3349c97c6f4e12, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 2
-    m_Data: {fileID: 21300000, guid: 0d19ed3de98fd1e458dca2fc2ef22c8f, type: 3}
+    m_Data: {fileID: 21300002, guid: fb9bdaea1532c7b4581e7704dab80006, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 2
     m_Data:
@@ -27093,12 +27097,12 @@ PrefabInstance:
     - target: {fileID: 6044520876765588312, guid: b975c62f19fbbc740aa8a91087df26ce,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 53.85
+      value: -6.59
       objectReference: {fileID: 0}
     - target: {fileID: 6044520876765588312, guid: b975c62f19fbbc740aa8a91087df26ce,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.94
+      value: -0.94
       objectReference: {fileID: 0}
     - target: {fileID: 6044520876765588312, guid: b975c62f19fbbc740aa8a91087df26ce,
         type: 3}
