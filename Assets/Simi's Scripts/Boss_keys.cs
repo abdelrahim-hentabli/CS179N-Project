@@ -19,6 +19,8 @@ public class Boss_keys : MonoBehaviour {
     }
 
     void PickupKey(Collider2D player) {
+    	PlayerController keys = player.GetComponent<PlayerController>();
+    	keys.numOfKeys = numKeys;
     	GetComponent<SpriteRenderer>().enabled = false;
 		GetComponent<Collider2D>().enabled = false;
     	Destroy(gameObject);

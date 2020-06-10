@@ -41,6 +41,8 @@ public class PlayerController : MonoBehaviour
 	private int extraJumps;
 	public int extraJumpsValue;
 
+    public int numOfKeys = 0;
+
     // Start is called before the first frame update
     void Start()
     {
