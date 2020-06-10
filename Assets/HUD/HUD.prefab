@@ -1117,6 +1117,9 @@ MonoBehaviour:
   - {fileID: 4376725069276286534}
   gameOverScreen: {fileID: 8293486178981741407}
   Saving: {fileID: 3503441636044282593}
+  healthFill: {fileID: 5835567128238635297}
+  HealthBarColor: {r: 0.3647059, g: 0.02745098, b: 0, a: 1}
+  BuffColor: {r: 0, g: 0.5137255, b: 1, a: 1}
   hudElements:
   - {fileID: 5835567129781975784}
   - {fileID: 5835567129555949772}

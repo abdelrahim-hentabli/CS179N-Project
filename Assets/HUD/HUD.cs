@@ -23,6 +23,10 @@ public class HUD : MonoBehaviour
     public GameObject gameOverScreen;
     public Text Saving;
 
+    public Image healthFill;
+    public Color HealthBarColor;
+    public Color BuffColor;
+
     public GameObject[] hudElements = new GameObject[4];
 
     public Text quickItemAmount;
@@ -122,6 +126,14 @@ public class HUD : MonoBehaviour
                     {
                         onBomb();
                     }
+                    else if (currentQuickItem == 1)
+                    {
+                        onThunder();
+                    }
+                    else if (currentQuickItem == 2)
+                    {
+                        onBuff();
+                    }
                 }
 
             }
@@ -129,11 +141,6 @@ public class HUD : MonoBehaviour
             {
                 updateQuickItems();
             }
-            if (Input.GetKeyDown(KeyCode.P))
-            {
-                onHit(22);
-            }
-
             Healthbar.value = currentHealth;
         }
     }
@@ -176,17 +183,25 @@ public class HUD : MonoBehaviour
 
     public void onBomb()
     {
-        
+        //TODO
     }
 
     public void onThunder()
     {
-
+        player.SendMessage("thunder");
     }
 
     public void onBuff()
     {
+        healthFill.color = BuffColor;
+        playerCombat.attackDamage = 40;
+        Invoke("endBuff", 10f);
+    }
 
+    private void endBuff()
+    {
+        playerCombat.attackDamage = 20;
+        healthFill.color = HealthBarColor;
     }
 
     public void replenishHealthPotions()
@@ -243,5 +258,14 @@ public class HUD : MonoBehaviour
         saving = true;
         Saving.enabled = true;
         savingTimer = 0.0f;
+    }
+
+    public void giveBuffItem()
+    {
+        itemAmount[2]++;
+        if(currentQuickItem == 2)
+        {
+            quickItemAmount.text = itemAmount[currentQuickItem].ToString();
+        }
     }
 }
