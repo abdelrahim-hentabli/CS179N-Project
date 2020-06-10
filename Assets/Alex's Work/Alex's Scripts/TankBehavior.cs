@@ -199,14 +199,7 @@ public class TankBehavior : MonoBehaviour
             hitbox.SetActive(false);
             hotzone.SetActive(false);
             triggerArea.SetActive(false);
-            
-            //Destroy(head);
-            //Destroy(feet);
-            //Destroy(hitbox);
             body.enabled = false;
-            //Destroy(hotzone);
-            //Destroy(triggerArea);
-
         }
 
         else
