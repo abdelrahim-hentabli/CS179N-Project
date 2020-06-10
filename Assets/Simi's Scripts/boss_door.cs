@@ -2,17 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class boss_door : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+public class boss_door : MonoBehaviour {
+
+	void OnTriggerEnter2D(Collider2D player) {
+		PlayerController keys = player.GetComponent<PlayerController>();
+    	if(player.gameObject.CompareTag("Player") && keys.numOfKeys == 3) {
+    		RemoveDoor();	
+    	}
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void RemoveDoor() {
+    	GetComponent<SpriteRenderer>().enabled = false;
+		GetComponent<Collider2D>().enabled = false;
+    	Destroy(gameObject);
     }
+
 }

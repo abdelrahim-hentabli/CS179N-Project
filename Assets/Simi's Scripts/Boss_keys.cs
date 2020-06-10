@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Boss_keys : MonoBehaviour {
 	public GameObject uiObject;
-	public int numKeys = 0;
+	//public int numKeys = 0;
 
     void Start() {
     	uiObject.SetActive(false);    
@@ -13,14 +13,14 @@ public class Boss_keys : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D player) {
     	if(player.gameObject.CompareTag("Player")) {
     		uiObject.SetActive(true);
-    		numKeys++;
+    		//numKeys++;
     		PickupKey(player);
     	}
     }
 
     void PickupKey(Collider2D player) {
     	PlayerController keys = player.GetComponent<PlayerController>();
-    	keys.numOfKeys = numKeys;
+    	keys.numOfKeys++;
     	GetComponent<SpriteRenderer>().enabled = false;
 		GetComponent<Collider2D>().enabled = false;
     	Destroy(gameObject);
