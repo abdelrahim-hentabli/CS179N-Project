@@ -64,6 +64,7 @@ public class Flying_Skull_Damage : MonoBehaviour
             this.GetComponent<Rigidbody2D>().isKinematic = true;
             this.GetComponent<Collider2D>().enabled = false;
             this.enabled = false;
+            Invoke("deactivate", 1.5f);
             // enemy.SetBool("Dead", true);
             // GetComponent<Collider2D>().enabled = false;
             // this.enabled = false;
@@ -74,6 +75,11 @@ public class Flying_Skull_Damage : MonoBehaviour
             skullScript.moveSpeed = 0;
             stunned = true;     
         }
+    }
+
+    private void deactivate()
+    {
+        this.gameObject.SetActive(false);
     }
 
     public void reanimate()
