@@ -51,6 +51,11 @@ public class Behavior : MonoBehaviour
 
     private Vector3 startPosition;
 
+    public AudioClip attackSound;
+    public AudioClip hitSound;
+    public AudioClip deathSound;
+    public AudioSource audioSrc;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -62,6 +67,7 @@ public class Behavior : MonoBehaviour
         boltTimer = 0;
         enemyInSight = false;
         speed = 1;
+        audioSrc = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -125,16 +131,19 @@ public class Behavior : MonoBehaviour
 
     void shootBolt()
     {
+        audioSrc.PlayOneShot(attackSound);
         GameObject instance = Instantiate(boltPrefab, crossBow.transform.position, transform.rotation);
         instance.GetComponent<Rigidbody2D>().velocity = new Vector3((right ? 1 : -1) * 4f, 0f, 0f);
     }
 
     public void takeDamage(int damage)
     {
+        audioSrc.PlayOneShot(hitSound);
         currentHealth -= damage;
 
         if (currentHealth <= 0)
         {
+            audioSrc.PlayOneShot(deathSound);
             animator.SetTrigger("Die");
             this.enabled = false;
             Invoke("die", 1f);
