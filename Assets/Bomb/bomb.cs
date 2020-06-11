@@ -8,9 +8,16 @@ public class bomb : MonoBehaviour
     public List<Collider2D> GetColliders() { return colliders; }
     private float timer = 0.0f;
 
-    private const float explode_time = 6f;
+    private const float explode_time = 5f;
+
+    private const float delete_time = 6f;
+
+    private bool exploded = false;
 
     public int bombStrength = 10;
+
+    public AudioClip bombAudio;
+    public AudioSource audioSrc;
 
     // Start is called before the first frame update
     void Start()
@@ -22,9 +29,10 @@ public class bomb : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if(timer > explode_time)
+        if(timer > explode_time && !exploded)
         {
-            for(int i = 0; i < colliders.Count; i++)
+            audioSrc.PlayOneShot(bombAudio);
+            for (int i = 0; i < colliders.Count; i++)
             {
                 if (colliders[i].gameObject.tag == "PlayerHitbox")
                 {
@@ -35,6 +43,10 @@ public class bomb : MonoBehaviour
                     colliders[i].gameObject.SendMessage("takeDamage", bombStrength);
                 }
             }
+            exploded = true;
+        }
+        if(timer > delete_time)
+        {
             Destroy(gameObject);
         }
     }
