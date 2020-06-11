@@ -38,6 +38,7 @@ public class Combat : MonoBehaviour
     //For combat sounds
     public AudioClip swordAudio;
     public AudioClip crossbowAudio;
+    public AudioClip damageAudio;
     public AudioSource audioSrc;
 
     void Start()
@@ -52,7 +53,6 @@ public class Combat : MonoBehaviour
     void Awake()
     {
     	currentHealth = maxHealth;
-
     }
 
     // Update is called once per frame
@@ -182,6 +182,7 @@ public class Combat : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        audioSrc.PlayOneShot(damageAudio);
         if (damage > currentHealth)
         {
             damage = currentHealth;
