@@ -4008,8 +4008,7 @@ PrefabInstance:
         type: 3}
       propertyPath: boltCoolDownBar
       value: 
-      objectReference: {fileID: 7857386570104469856, guid: 01e3aef70451016419bfd8f0afb08c5f,
-        type: 3}
+      objectReference: {fileID: 1569440540}
     - target: {fileID: 6044520876765588318, guid: b975c62f19fbbc740aa8a91087df26ce,
         type: 3}
       propertyPath: ammoCooldown
@@ -4101,6 +4100,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1569440540 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2624208637275120235, guid: 13a3d6ab287faa04c8de64ae80556d95,
+    type: 3}
+  m_PrefabInstance: {fileID: 734420084}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1587852190
 GameObject:
   m_ObjectHideFlags: 0
