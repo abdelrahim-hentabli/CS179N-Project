@@ -13129,7 +13129,7 @@ MonoBehaviour:
 
     Press "Q" to switch to the scroll
 
-    and "R" to use it.'
+    and "F" to use it.'
 --- !u!222 &499370721
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -24447,7 +24447,7 @@ MonoBehaviour:
 
     Press "Q" to switch to the orb
 
-    and "R" to use it.'
+    and "F" to use it.'
 --- !u!222 &1440259517
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -36584,7 +36584,9 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Left-click mouse for sword attack.
 
-    Right-click mouse for crossbow attack.'
+    Right-click mouse for crossbow attack.
+
+    Press "F" to use bomb quick item.'
 --- !u!222 &2025530785
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -36609,8 +36611,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 200.9, y: -96.3}
-  m_SizeDelta: {x: 376, y: 57.8}
+  m_AnchoredPosition: {x: 200.9, y: -86}
+  m_SizeDelta: {x: 376, y: 67.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2054842211
 GameObject:
@@ -37658,37 +37660,37 @@ PrefabInstance:
     - target: {fileID: 6044520876765588312, guid: b975c62f19fbbc740aa8a91087df26ce,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.38
+      value: -6.72
       objectReference: {fileID: 0}
     - target: {fileID: 6044520876765588312, guid: b975c62f19fbbc740aa8a91087df26ce,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.16
+      value: -0.37
       objectReference: {fileID: 0}
     - target: {fileID: 6044520876765588312, guid: b975c62f19fbbc740aa8a91087df26ce,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 6044520876765588312, guid: b975c62f19fbbc740aa8a91087df26ce,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: 0.008726445
       objectReference: {fileID: 0}
     - target: {fileID: 6044520876765588312, guid: b975c62f19fbbc740aa8a91087df26ce,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.01745085
       objectReference: {fileID: 0}
     - target: {fileID: 6044520876765588312, guid: b975c62f19fbbc740aa8a91087df26ce,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.0001523129
       objectReference: {fileID: 0}
     - target: {fileID: 6044520876765588312, guid: b975c62f19fbbc740aa8a91087df26ce,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9998097
       objectReference: {fileID: 0}
     - target: {fileID: 6044520876765588312, guid: b975c62f19fbbc740aa8a91087df26ce,
         type: 3}
@@ -37698,12 +37700,12 @@ PrefabInstance:
     - target: {fileID: 6044520876765588312, guid: b975c62f19fbbc740aa8a91087df26ce,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6044520876765588312, guid: b975c62f19fbbc740aa8a91087df26ce,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 6044520876765588312, guid: b975c62f19fbbc740aa8a91087df26ce,
         type: 3}
