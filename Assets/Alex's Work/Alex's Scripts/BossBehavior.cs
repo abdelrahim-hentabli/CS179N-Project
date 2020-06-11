@@ -21,6 +21,13 @@ public class BossBehavior : MonoBehaviour
     public int maxHealth;
     public int currentHealth;
     public bool attackMode;
+    public AudioClip hitSound;
+    public AudioClip deathSound1;
+    public AudioClip deathSound2;
+    public AudioClip attackSound;
+    public AudioSource audioSrc;
+
+    public float hitCounter = 0.0f;
     #endregion
 
     #region Private Variables
@@ -30,6 +37,9 @@ public class BossBehavior : MonoBehaviour
     //private bool attackMode;
     private bool cooling; //check if enemy is cooling after attack
     private float intTimer;
+
+    //Testing a "hit counter" that will only stun the enemy when hit
+    //private float hitCounter = 0.0f;
     #endregion
 
     float stunTimer;
@@ -46,6 +56,7 @@ public class BossBehavior : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+        audioSrc = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -71,11 +82,12 @@ public class BossBehavior : MonoBehaviour
         {
             stunTimer += Time.deltaTime;
 
-            if (stunTimer >= 0.2f)
+            if (stunTimer >= 0.5f)
             {
                 stunned = false;
                 stunTimer = 0;
                 moveSpeed = 0.4f;
+                hitCounter = 0.0f;
             }
         }
     }
@@ -114,6 +126,7 @@ public class BossBehavior : MonoBehaviour
 
     void Attack()
     {
+        audioSrc.PlayDelayed(0.43f);
         timer = intTimer; //reset timer when player enters attack range
         attackMode = true; //to check if enemy can still attack or nah
 
@@ -185,9 +198,13 @@ public class BossBehavior : MonoBehaviour
     public void takeDamage(int damage)
     {
         currentHealth -= damage;
+        audioSrc.PlayOneShot(hitSound);
 
         if (currentHealth <= 0)
         {
+            audioSrc.Stop();
+            audioSrc.PlayOneShot(deathSound1, 6.0f);
+            Invoke("DeathSound2", 0.5f);
             anim.SetTrigger("Dead");
             this.GetComponent<Rigidbody2D>().isKinematic = false;
             this.enabled = false;
@@ -198,33 +215,24 @@ public class BossBehavior : MonoBehaviour
             hitbox.SetActive(false);
             hotzone.SetActive(false);
             triggerArea.SetActive(false);
-
-            //Destroy(head);
-            //Destroy(feet);
-            //Destroy(hitbox);
             body.enabled = false;
-            //Destroy(hotzone);
-            //Destroy(triggerArea);
-
         }
 
         else
         {
-            anim.SetTrigger("Hit");
-            moveSpeed = 0;
-            stunned = true;
+            hitCounter++;
+
+            if (hitCounter >= 6)
+            {
+                anim.SetTrigger("Hit");
+                moveSpeed = 0;
+                stunned = true;
+            }
         }
     }
 
-    public void reanimate()
+    void DeathSound2()
     {
-        this.enabled = false;
-        moveSpeed = 1;
-        currentHealth = maxHealth;
-        head.SetActive(true);
-        feet.SetActive(true);
-        hitbox.SetActive(true);
-        hotzone.SetActive(true);
-        triggerArea.SetActive(true);
+        audioSrc.PlayOneShot(deathSound2);
     }
 }

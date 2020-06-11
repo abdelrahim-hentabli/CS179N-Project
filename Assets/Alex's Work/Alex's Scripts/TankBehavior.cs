@@ -21,6 +21,11 @@ public class TankBehavior : MonoBehaviour
     public int maxHealth;
     public int currentHealth;
     public bool attackMode;
+    public AudioClip hitSound;
+    public AudioClip deathSound1;
+    public AudioClip deathSound2;
+    public AudioClip attackSound;
+    public AudioSource audioSrc;
     #endregion
 
     #region Private Variables
@@ -47,6 +52,7 @@ public class TankBehavior : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+        audioSrc = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -115,6 +121,7 @@ public class TankBehavior : MonoBehaviour
 
     void Attack()
     {
+        audioSrc.PlayDelayed(0.75f);
         timer = intTimer; //reset timer when player enters attack range
         attackMode = true; //to check if enemy can still attack or nah
 
@@ -186,10 +193,13 @@ public class TankBehavior : MonoBehaviour
     public void takeDamage(int damage)
     {
         currentHealth -= damage;
-
+        audioSrc.PlayOneShot(hitSound);
         if (currentHealth <= 0)
         {
             anim.SetTrigger("Dead");
+            audioSrc.Stop();
+            audioSrc.PlayOneShot(deathSound1, 6.0f);
+            Invoke("DeathSound2", 0.5f);
             this.GetComponent<Rigidbody2D>().isKinematic = false;
             this.enabled = false;
             moveSpeed = 0;
@@ -199,14 +209,7 @@ public class TankBehavior : MonoBehaviour
             hitbox.SetActive(false);
             hotzone.SetActive(false);
             triggerArea.SetActive(false);
-            
-            //Destroy(head);
-            //Destroy(feet);
-            //Destroy(hitbox);
             body.enabled = false;
-            //Destroy(hotzone);
-            //Destroy(triggerArea);
-
         }
 
         else
@@ -215,6 +218,11 @@ public class TankBehavior : MonoBehaviour
             moveSpeed = 0;
             stunned = true;
         }
+    }
+
+    void DeathSound2()
+    {
+        audioSrc.PlayOneShot(deathSound2);
     }
 
     public void reanimate()
