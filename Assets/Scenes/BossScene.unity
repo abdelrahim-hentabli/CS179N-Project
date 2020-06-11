@@ -4004,6 +4004,17 @@ PrefabInstance:
       propertyPath: HUDObject
       value: 
       objectReference: {fileID: 1079134652}
+    - target: {fileID: 6044520876765588318, guid: b975c62f19fbbc740aa8a91087df26ce,
+        type: 3}
+      propertyPath: boltCoolDownBar
+      value: 
+      objectReference: {fileID: 7857386570104469856, guid: 01e3aef70451016419bfd8f0afb08c5f,
+        type: 3}
+    - target: {fileID: 6044520876765588318, guid: b975c62f19fbbc740aa8a91087df26ce,
+        type: 3}
+      propertyPath: ammoCooldown
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6044520876765588326, guid: b975c62f19fbbc740aa8a91087df26ce,
         type: 3}
       propertyPath: m_Name
