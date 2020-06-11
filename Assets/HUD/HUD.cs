@@ -287,4 +287,14 @@ public class HUD : MonoBehaviour
             quickItemAmount.text = itemAmount[currentQuickItem].ToString();
         }
     }
+
+    public void giveBombItem()
+    {
+        itemAmount[0]++;
+        if (currentQuickItem == 0)
+        {
+            quickItemAmount.text = itemAmount[currentQuickItem].ToString();
+        }
+    }
+
 }

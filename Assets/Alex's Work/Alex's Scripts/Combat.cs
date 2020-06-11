@@ -293,6 +293,12 @@ public class Combat : MonoBehaviour
 
     }
 
+    public void giveBombItem()
+    {
+        hud.giveBombItem();
+
+    }
+
     public void throwBomb()
     {
         Instantiate(bombPrefab, bombPoint.position, bombPoint.rotation);
