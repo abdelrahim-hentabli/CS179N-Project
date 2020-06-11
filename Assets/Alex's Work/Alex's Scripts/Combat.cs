@@ -24,6 +24,8 @@ public class Combat : MonoBehaviour
     public Animator shoot;
     public Transform firePoint;
     public GameObject boltPrefab;
+    public Transform bombPoint;
+    public GameObject bombPrefab;
     public GameObject thunderboltPrefab;
 
     //Makes sure player can't stunlock enemies to death that easily
@@ -212,6 +214,11 @@ public class Combat : MonoBehaviour
     {
         hud.giveBuffItem();
         
+    }
+
+    public void throwBomb()
+    {
+        Instantiate(bombPrefab, bombPoint.position, bombPoint.rotation);
     }
 
 }

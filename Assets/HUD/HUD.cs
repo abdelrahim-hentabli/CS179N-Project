@@ -184,6 +184,7 @@ public class HUD : MonoBehaviour
     public void onBomb()
     {
         //TODO
+        player.SendMessage("throwBomb");
     }
 
     public void onThunder()

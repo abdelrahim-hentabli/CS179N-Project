@@ -57,6 +57,36 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.2922516, y: 0.72008705}
   m_EdgeRadius: 0
+--- !u!1 &5477439504967309317
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8678399121491710935}
+  m_Layer: 8
+  m_Name: BombPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8678399121491710935
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5477439504967309317}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.325, y: -0.3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6044520876765588312}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6044520875633193883
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,6 +186,7 @@ Transform:
   - {fileID: 6044520876245310878}
   - {fileID: 6044520875633193884}
   - {fileID: 1109685854}
+  - {fileID: 8678399121491710935}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -220,6 +251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
+  HUDObject: {fileID: 0}
   animator: {fileID: 6044520876765588317}
   speed: 2
   jumpForce: 6
@@ -229,6 +261,7 @@ MonoBehaviour:
   body: {fileID: 0}
   headCollider: {fileID: 0}
   isGrounded: 0
+  isCrouched: 0
   groundCheck: {fileID: 6044520877074157706}
   checkRadius: 0.1
   whatIsGround:
@@ -330,7 +363,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  currentHealth: 0
   playerAnim: {fileID: 6044520876765588317}
+  HUDObject: {fileID: 0}
   attack: {fileID: 6044520876765588317}
   attackPoint: {fileID: 6044520876245310878}
   attackRange: 0.35
@@ -341,6 +376,11 @@ MonoBehaviour:
   shoot: {fileID: 6044520876765588317}
   firePoint: {fileID: 6044520875633193884}
   boltPrefab: {fileID: 5042256044450697994, guid: ee6a405b9c035d34a98cf9349584dd1b,
+    type: 3}
+  bombPoint: {fileID: 8678399121491710935}
+  bombPrefab: {fileID: 5287024141788199849, guid: 5f4c106fc5d04834eb223558ef8b23a2,
+    type: 3}
+  thunderboltPrefab: {fileID: 2277486037170313039, guid: 3664494669124e74f9ac4447471610b6,
     type: 3}
   attackRate: 2
 --- !u!58 &6044520876765588319
