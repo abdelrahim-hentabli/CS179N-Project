@@ -5,7 +5,7 @@ using UnityEngine;
 public class fastMelee_behavior : MonoBehaviour {
     #region Public Variables
 	public float attackDistance; //min distance for attack
-	public float moveSpeed;
+	public float moveSpeed = 1;
 	public float timer; //timer for cooldown between attacks
     public Transform leftLimit;
     public Transform rightLimit;
@@ -62,8 +62,8 @@ public class fastMelee_behavior : MonoBehaviour {
         else if(anim.GetBool("Dead")) {
             anim.SetBool("Attack", false);
             anim.SetBool("canWalk", false);
-            Destroy(hotZone);
-            Destroy(triggerArea);
+            //Destroy(hotZone);
+            //Destroy(triggerArea);
         }
         
 
@@ -166,10 +166,7 @@ public class fastMelee_behavior : MonoBehaviour {
         transform.eulerAngles = rotation;
     }
 
-    public void reanimate()
-    {
-
-    }
+    
 /*
     public void takeDamage(int damage) {
         currentHealth -= damage;

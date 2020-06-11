@@ -18,9 +18,12 @@ public class Enemy : MonoBehaviour
     public AudioClip death;
     public AudioSource audioSrc;
 
+    private Vector3 startPosition;
+
     // Start is called before the first frame update
     void Start()
     {
+        startPosition = transform.position;
         hitboxObject = enemyObject.transform.Find("fastMelee_hitbox").gameObject;
         currentHealth = maxHealth;
         audioSrc = GetComponent<AudioSource>();
@@ -59,6 +62,7 @@ public class Enemy : MonoBehaviour
             hitboxObject.GetComponentInChildren<BoxCollider2D>().enabled = false;
             this.enabled = false;
             fastMeleeScript.moveSpeed = 0;
+            Invoke("Deactivate", 2f);
         }
 
         else {
@@ -66,5 +70,21 @@ public class Enemy : MonoBehaviour
             fastMeleeScript.moveSpeed = 0;
             isStunned = true;
         }
+    }
+    public void reanimate()
+    {
+        currentHealth = maxHealth;
+        this.enabled = true;
+        this.GetComponent<Rigidbody2D>().isKinematic = true;
+        this.GetComponent<Collider2D>().enabled = true;
+        this.GetComponent<CircleCollider2D>().enabled = true;
+        transform.position = startPosition;
+        hitboxObject.GetComponentInChildren<BoxCollider2D>().enabled = true;
+        this.GetComponent<fastMelee_behavior>().moveSpeed = 1;
+    }
+
+    public void Deactivate()
+    {
+        this.gameObject.SetActive(false);
     }
 }
