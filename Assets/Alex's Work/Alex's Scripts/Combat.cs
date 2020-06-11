@@ -37,7 +37,7 @@ public class Combat : MonoBehaviour
 
     //For combat sounds
     public AudioClip swordAudio;
-    //public AudioClip crossbowAudio;
+    public AudioClip crossbowAudio;
     public AudioSource audioSrc;
 
     void Start()
@@ -152,7 +152,7 @@ public class Combat : MonoBehaviour
     //Crossbow attack
     void Shoot()
     {
-        //audioSrc.PlayOneShot(crossbowAudio);
+        audioSrc.PlayOneShot(crossbowAudio);
         //Fire a bolt
         Instantiate(boltPrefab, firePoint.position, firePoint.rotation);
         Invoke("MoveAfterShoot", 0.3f);

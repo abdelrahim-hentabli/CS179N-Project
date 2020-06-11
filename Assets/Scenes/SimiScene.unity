@@ -36704,6 +36704,11 @@ PrefabInstance:
       propertyPath: HUDObject
       value: 
       objectReference: {fileID: 1669936801}
+    - target: {fileID: 6044520876765588318, guid: b975c62f19fbbc740aa8a91087df26ce,
+        type: 3}
+      propertyPath: crossbowAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 2bc8225a23eb945578cfd49d8ba0dd67, type: 3}
     - target: {fileID: 6044520876765588326, guid: b975c62f19fbbc740aa8a91087df26ce,
         type: 3}
       propertyPath: m_Name
