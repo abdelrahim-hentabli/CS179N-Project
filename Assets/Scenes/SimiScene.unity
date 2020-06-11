@@ -1174,18 +1174,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!61 &81454097 stripped
-BoxCollider2D:
-  m_CorrespondingSourceObject: {fileID: 6044520876765588315, guid: b975c62f19fbbc740aa8a91087df26ce,
-    type: 3}
-  m_PrefabInstance: {fileID: 2073406458}
-  m_PrefabAsset: {fileID: 0}
---- !u!50 &81454098 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 6044520876765588313, guid: b975c62f19fbbc740aa8a91087df26ce,
-    type: 3}
-  m_PrefabInstance: {fileID: 2073406458}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &102091974
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36708,16 +36696,6 @@ PrefabInstance:
       objectReference: {fileID: 486594235}
     - target: {fileID: 6044520876765588314, guid: b975c62f19fbbc740aa8a91087df26ce,
         type: 3}
-      propertyPath: body
-      value: 
-      objectReference: {fileID: 81454098}
-    - target: {fileID: 6044520876765588314, guid: b975c62f19fbbc740aa8a91087df26ce,
-        type: 3}
-      propertyPath: headCollider
-      value: 
-      objectReference: {fileID: 81454097}
-    - target: {fileID: 6044520876765588314, guid: b975c62f19fbbc740aa8a91087df26ce,
-        type: 3}
       propertyPath: HUDObject
       value: 
       objectReference: {fileID: 1669936801}
@@ -36726,12 +36704,6 @@ PrefabInstance:
       propertyPath: HUDObject
       value: 
       objectReference: {fileID: 1669936801}
-    - target: {fileID: 6044520876765588318, guid: b975c62f19fbbc740aa8a91087df26ce,
-        type: 3}
-      propertyPath: thunderboltPrefab
-      value: 
-      objectReference: {fileID: 2277486037170313039, guid: 3664494669124e74f9ac4447471610b6,
-        type: 3}
     - target: {fileID: 6044520876765588326, guid: b975c62f19fbbc740aa8a91087df26ce,
         type: 3}
       propertyPath: m_Name

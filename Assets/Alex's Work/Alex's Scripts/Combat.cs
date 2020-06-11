@@ -35,26 +35,18 @@ public class Combat : MonoBehaviour
     private PlayerController playerController;
     private bool combatGround = true;
 
-    //EXPERIMENTAL: Stamina counter to determine number of attacks
-    //Stamina should recover as long as the player has less than 100 stamina AND has waited a certain amount of time after attacking
-    //Player should not be able to attack if they have no stamina
-    //public float combatStamina; //Amount of stamina
-    //public float staminaTimer; //Waits between attacks before regenerating
-    //public bool hasStamina; //Does the player have stamina?
-    //public bool isRecovering; //Checks to see if player is recovering stamina
-	// Start is called before the first frame update
+    //For combat sounds
+    public AudioClip swordAudio;
+    //public AudioClip crossbowAudio;
+    public AudioSource audioSrc;
+
     void Start()
     {
         hud = HUDObject.GetComponent<HUD>();
 
         thePlayer = GameObject.Find("Player");
         playerController = thePlayer.GetComponent<PlayerController>();
-
-        //EXPERIMENTAL
-        //combatStamina = 100.0f;
-        //staminaTimer = 0.0f;
-        //isRecovering = false;
-        //hasStamina = true;
+        audioSrc = GetComponent<AudioSource>();
     }
 
     void Awake()
@@ -142,6 +134,7 @@ public class Combat : MonoBehaviour
     //Melee attack
     void Attack()
     {
+        audioSrc.PlayOneShot(swordAudio);
         //Check for enemies within the hitbox
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
@@ -159,6 +152,7 @@ public class Combat : MonoBehaviour
     //Crossbow attack
     void Shoot()
     {
+        //audioSrc.PlayOneShot(crossbowAudio);
         //Fire a bolt
         Instantiate(boltPrefab, firePoint.position, firePoint.rotation);
         Invoke("MoveAfterShoot", 0.3f);
