@@ -15,6 +15,8 @@ public class fastMelee_behavior : MonoBehaviour {
     public GameObject triggerArea;
     public int maxHealth;
     public static int currentHealth;
+    public AudioClip attackSound;
+    public AudioSource audioSrc;
 	#endregion
 
 	#region Private Variables
@@ -38,6 +40,7 @@ public class fastMelee_behavior : MonoBehaviour {
 
     void Start() {
         currentHealth = maxHealth;
+        audioSrc = GetComponent<AudioSource>();
     }
 
     void Update() {
@@ -83,6 +86,7 @@ public class fastMelee_behavior : MonoBehaviour {
     	}
 
     	else if(attackDistance >= distance && cooling == false) {
+            audioSrc.Play();
     		Attack();
     	}
 
@@ -104,7 +108,7 @@ public class fastMelee_behavior : MonoBehaviour {
     void Attack() {
     	timer = intTimer; //reset timer when player enters attack range
     	attackMode = true; //to check if enemy can still attack or nah
-
+        //audioSrc.Play();
         anim.SetBool("canWalk", false);
         anim.SetBool("Attack", true);
     }

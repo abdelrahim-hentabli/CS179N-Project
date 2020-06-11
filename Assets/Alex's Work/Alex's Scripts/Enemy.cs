@@ -14,11 +14,17 @@ public class Enemy : MonoBehaviour
     private bool isStunned = false;
     private int currentHealth;
 
+    public AudioClip hit;
+    public AudioClip death;
+    public AudioSource audioSrc;
+
     // Start is called before the first frame update
     void Start()
     {
         hitboxObject = enemyObject.transform.Find("fastMelee_hitbox").gameObject;
         currentHealth = maxHealth;
+        audioSrc = GetComponent<AudioSource>();
+
         stunTimer = 0;
         fastMeleeScript = enemyObject.GetComponent<fastMelee_behavior>();
     }
@@ -42,7 +48,10 @@ public class Enemy : MonoBehaviour
     public void takeDamage(int damage) {
         currentHealth -= damage;
 
+        audioSrc.PlayOneShot(hit);
+
         if (currentHealth <= 0) {
+            audioSrc.PlayOneShot(death);
             enemy.SetBool("Dead", true);
             this.GetComponent<Rigidbody2D>().isKinematic = true;
             this.GetComponent<Collider2D>().enabled = false;

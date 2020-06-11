@@ -37,6 +37,12 @@ public class Combat : MonoBehaviour
     private PlayerController playerController;
     private bool combatGround = true;
 
+    //For combat sounds
+    public AudioClip swordAudio;
+    public AudioClip crossbowAudio;
+    public AudioClip damageAudio;
+    public AudioSource audioSrc;
+
     //Bolt ammo variables
     public GameObject boltCoolDownBar;
     public float ammoCooldown;
@@ -51,13 +57,15 @@ public class Combat : MonoBehaviour
     //public float staminaTimer; //Waits between attacks before regenerating
     //public bool hasStamina; //Does the player have stamina?
     //public bool isRecovering; //Checks to see if player is recovering stamina
-	// Start is called before the first frame update
+	  // Start is called before the first frame update
     void Start()
     {
         hud = HUDObject.GetComponent<HUD>();
 
         thePlayer = GameObject.Find("Player");
         playerController = thePlayer.GetComponent<PlayerController>();
+
+        audioSrc = GetComponent<AudioSource>();
 
         attackTimer = attackCooldown;
         canAttack = true;
@@ -78,7 +86,6 @@ public class Combat : MonoBehaviour
     void Awake()
     {
     	currentHealth = maxHealth;
-
     }
 
     // Update is called once per frame
@@ -203,6 +210,7 @@ public class Combat : MonoBehaviour
     //Melee attack
     void Attack()
     {
+        audioSrc.PlayOneShot(swordAudio);
         //Check for enemies within the hitbox
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
@@ -220,6 +228,7 @@ public class Combat : MonoBehaviour
     //Crossbow attack
     void Shoot()
     {
+        audioSrc.PlayOneShot(crossbowAudio);
         //Fire a bolt
         Instantiate(boltPrefab, firePoint.position, firePoint.rotation);
         Invoke("MoveAfterShoot", 0.3f);
@@ -249,6 +258,7 @@ public class Combat : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        audioSrc.PlayOneShot(damageAudio);
         if (damage > currentHealth)
         {
             damage = currentHealth;
