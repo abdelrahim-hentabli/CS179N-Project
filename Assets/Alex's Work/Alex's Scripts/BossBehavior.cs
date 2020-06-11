@@ -21,6 +21,11 @@ public class BossBehavior : MonoBehaviour
     public int maxHealth;
     public int currentHealth;
     public bool attackMode;
+    public AudioClip hitSound;
+    public AudioClip deathSound1;
+    public AudioClip deathSound2;
+    public AudioClip attackSound;
+    public AudioSource audioSrc;
 
     public float hitCounter = 0.0f;
     #endregion
@@ -51,6 +56,7 @@ public class BossBehavior : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+        audioSrc = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -120,6 +126,7 @@ public class BossBehavior : MonoBehaviour
 
     void Attack()
     {
+        audioSrc.PlayDelayed(0.43f);
         timer = intTimer; //reset timer when player enters attack range
         attackMode = true; //to check if enemy can still attack or nah
 
@@ -191,9 +198,13 @@ public class BossBehavior : MonoBehaviour
     public void takeDamage(int damage)
     {
         currentHealth -= damage;
+        audioSrc.PlayOneShot(hitSound);
 
         if (currentHealth <= 0)
         {
+            audioSrc.Stop();
+            audioSrc.PlayOneShot(deathSound1, 6.0f);
+            Invoke("DeathSound2", 0.5f);
             anim.SetTrigger("Dead");
             this.GetComponent<Rigidbody2D>().isKinematic = false;
             this.enabled = false;
@@ -218,5 +229,10 @@ public class BossBehavior : MonoBehaviour
                 stunned = true;
             }
         }
+    }
+
+    void DeathSound2()
+    {
+        audioSrc.PlayOneShot(deathSound2);
     }
 }
