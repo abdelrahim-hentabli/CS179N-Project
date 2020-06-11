@@ -110,10 +110,10 @@ public class HUD : MonoBehaviour
                 onHealthPotion();
             }
 
-            if (Input.GetKeyDown(KeyCode.Mouse1))
-            {
-                onCrossbow();
-            }
+            // if (Input.GetKeyDown(KeyCode.Mouse1))
+            // {
+            //     onCrossbow();
+            // }
 
 
             if (Input.GetKeyDown(KeyCode.F))
@@ -171,7 +171,7 @@ public class HUD : MonoBehaviour
                 healAmount = potionStrength;
             }
             currentHealth += healAmount;
-            playerCombat.TakeDamage(-healAmount);
+            playerCombat.currentHealth += healAmount;
             if(currentHealth > maxHealth)
             {
                 currentHealth = maxHealth;
@@ -226,6 +226,15 @@ public class HUD : MonoBehaviour
             boltAmount--;
             bolts[boltAmount].enabled = false;
         }
+    }
+
+    public void showAllAmmo()
+    {
+    	boltAmount = MAX_BOLTS;
+    	for(int i = 0; i < boltAmount; i++)
+    	{
+    		bolts[i].enabled = true;
+    	}
     }
 
     public void onDeath()
