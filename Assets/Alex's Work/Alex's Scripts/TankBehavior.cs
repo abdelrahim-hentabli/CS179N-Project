@@ -210,6 +210,7 @@ public class TankBehavior : MonoBehaviour
             hotzone.SetActive(false);
             triggerArea.SetActive(false);
             body.enabled = false;
+            Invoke("deactivate", 3f);
         }
 
         else
@@ -225,9 +226,14 @@ public class TankBehavior : MonoBehaviour
         audioSrc.PlayOneShot(deathSound2);
     }
 
+    public void deactivate()
+    {
+        this.gameObject.SetActive(false);
+    }
     public void reanimate()
     {
-        this.enabled = false;
+        this.GetComponent<Rigidbody2D>().isKinematic = false;
+        this.enabled = true;
         moveSpeed = 1;
         currentHealth = maxHealth;
         head.SetActive(true);
@@ -235,5 +241,6 @@ public class TankBehavior : MonoBehaviour
         hitbox.SetActive(true);
         hotzone.SetActive(true);
         triggerArea.SetActive(true);
+        body.enabled = true;
     }
 }
