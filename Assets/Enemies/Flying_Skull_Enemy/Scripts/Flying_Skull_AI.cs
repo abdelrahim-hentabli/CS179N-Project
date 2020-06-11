@@ -25,11 +25,19 @@ public class Flying_Skull_AI : MonoBehaviour
     public Transform firePoint;
     public GameObject flameProjectilePrefab;
 
+    public AudioClip attackSound;
+    public AudioSource audioSrc;
+
     void Awake()
     {
     	SelectTarget();
     	intTimer = timer;	// Store the initial value of timer
     	anim = GetComponent<Animator>();
+    }
+
+    void Start()
+    {
+        audioSrc = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -169,6 +177,7 @@ public class Flying_Skull_AI : MonoBehaviour
 
     void Shoot()
     {
+        audioSrc.PlayOneShot(attackSound);
         Instantiate(flameProjectilePrefab, firePoint.position, firePoint.rotation);
     }
 }
