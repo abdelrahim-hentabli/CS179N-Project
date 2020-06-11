@@ -220,6 +220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
+  HUDObject: {fileID: 0}
   animator: {fileID: 6044520876765588317}
   speed: 2
   jumpForce: 6
@@ -229,12 +230,14 @@ MonoBehaviour:
   body: {fileID: 0}
   headCollider: {fileID: 0}
   isGrounded: 0
+  isCrouched: 0
   groundCheck: {fileID: 6044520877074157706}
   checkRadius: 0.1
   whatIsGround:
     serializedVersion: 2
     m_Bits: 1024
   extraJumpsValue: 0
+  numOfKeys: 0
 --- !u!50 &6044520876765588313
 Rigidbody2D:
   serializedVersion: 4
@@ -330,7 +333,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  currentHealth: 0
   playerAnim: {fileID: 6044520876765588317}
+  HUDObject: {fileID: 0}
   attack: {fileID: 6044520876765588317}
   attackPoint: {fileID: 6044520876245310878}
   attackRange: 0.35
@@ -342,7 +347,12 @@ MonoBehaviour:
   firePoint: {fileID: 6044520875633193884}
   boltPrefab: {fileID: 5042256044450697994, guid: ee6a405b9c035d34a98cf9349584dd1b,
     type: 3}
-  attackRate: 2
+  thunderboltPrefab: {fileID: 7857386570104469856, guid: 01e3aef70451016419bfd8f0afb08c5f,
+    type: 3}
+  attackCooldown: 0
+  boltCoolDownBar: {fileID: 8922459149746937761, guid: 38696826377206245acd441c90a7178a,
+    type: 3}
+  ammoCooldown: 0
 --- !u!58 &6044520876765588319
 CircleCollider2D:
   m_ObjectHideFlags: 0

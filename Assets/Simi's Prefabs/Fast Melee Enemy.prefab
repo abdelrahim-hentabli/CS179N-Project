@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 487803451362881529}
   - component: {fileID: 487803451362881528}
+  - component: {fileID: 9100276649307841224}
   m_Layer: 9
   m_Name: fastMelee_hitbox
   m_TagString: Untagged
@@ -57,6 +58,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.24156994, y: 0.23937058}
   m_EdgeRadius: 0
+--- !u!114 &9100276649307841224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 487803451362881534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c918775e5b600c439da3e618371e9bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxDamage: 20
 --- !u!1 &487803451390852923
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,7 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df896bd992b876c439919f6bfb83818e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDistance: 2
+  attackDistance: 1.2
   moveSpeed: 1
   timer: 2
   leftLimit: {fileID: 0}
