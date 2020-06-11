@@ -8,29 +8,16 @@ public class Buff_Orb : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other) {
 		if(other.gameObject.CompareTag("Player")) {
             other.SendMessage("giveBuffItem");
-            //StartCoroutine(Pickup(other));
+            Pickup();
 		}
 
 	}
 
-	 IEnumerator Pickup(Collider2D player) {
-		//generate effect (not sure if this is needed yet)
-
-		//increase player damage by x2
-		Combat stats = player.GetComponent<Combat>();
-		stats.attackDamage = stats.attackDamage * multiplier;
-
-		//remove orb from scene
+	void Pickup() {
 		GetComponent<SpriteRenderer>().enabled = false;
 		GetComponent<Collider2D>().enabled = false;
+    	Destroy(gameObject);
 
-        //wait x amount of seconds, then reverse damage stats back to normal and destroy object
-        player.SendMessage("giveBuffItem");
-        yield return new WaitForSeconds(10);
-		stats.attackDamage = stats.attackDamage / multiplier;
-		Destroy(gameObject);
-
-		
 	}
     
 }
