@@ -9,6 +9,9 @@ public class Combat : MonoBehaviour
 	public int currentHealth;
 	public Animator playerAnim;
 
+    public GameObject HUDObject;
+    private HUD hud;
+
     //Melee variables
     public Animator attack;
     public Transform attackPoint;
@@ -42,6 +45,8 @@ public class Combat : MonoBehaviour
 	// Start is called before the first frame update
     void Start()
     {
+        hud = HUDObject.GetComponent<HUD>();
+
         thePlayer = GameObject.Find("Player");
         playerController = thePlayer.GetComponent<PlayerController>();
 
@@ -84,12 +89,14 @@ public class Combat : MonoBehaviour
             }
 
             //TESTING: Used for thunderbolt
+            /*
             if (Input.GetKeyDown(KeyCode.T))
             {
                 if (combatGround == true) { playerController.speed = 0f; }
                 playThunderbolt();
                 nextAttack = Time.time + 1f / attackRate;
             }
+            */
         }
 
         if(currentHealth <= 0)
@@ -123,6 +130,13 @@ public class Combat : MonoBehaviour
         //Summon thunderbolt
         Instantiate(thunderboltPrefab, firePoint.position, firePoint.rotation);
         Invoke("MoveAfterShoot", 0.3f);
+    }
+
+    void thunder()
+    {
+        if (combatGround == true) { playerController.speed = 0f; }
+        playThunderbolt();
+        nextAttack = Time.time + 1f / attackRate;
     }
 
     //Melee attack
@@ -183,13 +197,21 @@ public class Combat : MonoBehaviour
     	{
     		playerAnim.SetTrigger("Hit");
     		currentHealth -= damage;
+            hud.onHit(damage);
     	}
     }
 
     void Death()
     {
-    	Destroy(gameObject);
+    	//Destroy(gameObject);
 
     	//Destroy(this.gameObject);
     }
+
+    public void giveBuffItem()
+    {
+        hud.giveBuffItem();
+        
+    }
+
 }

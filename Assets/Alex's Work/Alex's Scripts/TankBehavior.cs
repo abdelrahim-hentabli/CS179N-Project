@@ -194,13 +194,12 @@ public class TankBehavior : MonoBehaviour
             this.enabled = false;
             moveSpeed = 0;
 
-            Destroy(head);
-            Destroy(feet);
-            Destroy(hitbox);
+            head.SetActive(false);
+            feet.SetActive(false);
+            hitbox.SetActive(false);
+            hotzone.SetActive(false);
+            triggerArea.SetActive(false);
             body.enabled = false;
-            Destroy(hotzone);
-            Destroy(triggerArea);
-
         }
 
         else
@@ -209,5 +208,17 @@ public class TankBehavior : MonoBehaviour
             moveSpeed = 0;
             stunned = true;
         }
+    }
+
+    public void reanimate()
+    {
+        this.enabled = false;
+        moveSpeed = 1;
+        currentHealth = maxHealth;
+        head.SetActive(true);
+        feet.SetActive(true);
+        hitbox.SetActive(true);
+        hotzone.SetActive(true);
+        triggerArea.SetActive(true);
     }
 }

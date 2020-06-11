@@ -49,12 +49,12 @@ public class Behavior : MonoBehaviour
     int maxHealth;
     int currentHealth;
 
-    
-
+    private Vector3 startPosition;
 
     // Start is called before the first frame update
     void Start()
     {
+        startPosition = transform.position;
         currentHealth = maxHealth = STARTING_HEALTH;
         body = GetComponent<Rigidbody2D>();
         seeEnemy = attackBox.GetComponent<SeeEnemy>();
@@ -81,7 +81,6 @@ public class Behavior : MonoBehaviour
         else if (boltTimer >= BOLT_COOLDOWN && enemyInSight)
         {
             boltTimer = 0;
-            animator.SetBool("Move", false);
             animator.SetBool("Attack", true);
             Invoke("shootBolt", .35f);
             speed = 0;
@@ -137,9 +136,7 @@ public class Behavior : MonoBehaviour
         if (currentHealth <= 0)
         {
             animator.SetTrigger("Die");
-            this.GetComponent<Rigidbody2D>().isKinematic = false;
             this.enabled = false;
-            speed = 0;
             Invoke("die", 1f);
         }
         else
@@ -152,6 +149,22 @@ public class Behavior : MonoBehaviour
 
     void die()
     {
+        body.velocity = new Vector2(0, body.velocity.y);
+        speed = 0;
         this.gameObject.SetActive(false);
+    }
+
+    void reanimate()
+    {
+        this.enabled = true;
+        animator.SetBool("Attack", false);
+        animator.SetBool("Move", true);
+        animator.SetBool("Attack", false);
+        currentHealth = maxHealth;
+        transform.position = startPosition;
+        pauseTimer = 0;
+        boltTimer = 0;
+        enemyInSight = false;
+        speed = 1;
     }
 }

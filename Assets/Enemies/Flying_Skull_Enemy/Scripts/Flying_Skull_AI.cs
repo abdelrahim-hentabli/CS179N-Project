@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,12 +13,17 @@ public class Flying_Skull_AI : MonoBehaviour
 	[HideInInspector] public bool inRange;	// Check if Player is in range
 	public GameObject hotZone;
 	public GameObject triggerArea;
+    public GameObject player;
 
     private Animator anim;
     private float distance;	// Stire the distance between enemy and player
     private bool attackMode;
     private bool cooling;	// Check if Enemy is cooling after attack
     private float intTimer;	
+
+    // Enemy Projectile
+    public Transform firePoint;
+    public GameObject flameProjectilePrefab;
 
     void Awake()
     {
@@ -63,6 +68,10 @@ public class Flying_Skull_AI : MonoBehaviour
     	}
     	else if (attackDistance >= distance && cooling == false)
     	{
+            if(transform.position.x >= player.transform.position.x || transform.position.x < player.transform.position.x)
+            {
+                Flip();
+            }
     		Attack();
     	}
 
@@ -142,15 +151,24 @@ public class Flying_Skull_AI : MonoBehaviour
     public void Flip()
     {
     	Vector3 rotation = transform.eulerAngles;
-    	if(transform.position.x > target.position.x)
+    	if(transform.position.x > target.position.x || ( inRange && transform.position.x >= player.transform.position.x))
     	{
     		rotation.y = 0f;
     	}
-    	else
+    	else if(inRange && transform.position.x < player.transform.position.x)
     	{
     		rotation.y = 180f;	
     	}
+        else 
+        {
+            rotation.y = 180f;   
+        }
 
     	transform.eulerAngles = rotation;
+    }
+
+    void Shoot()
+    {
+        Instantiate(flameProjectilePrefab, firePoint.position, firePoint.rotation);
     }
 }
