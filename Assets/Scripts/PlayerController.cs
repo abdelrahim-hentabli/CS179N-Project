@@ -111,8 +111,8 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate(){
 
-    	isGrounded = (Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround) 
-            && (body.velocity.y == 0.0f));
+    	isGrounded = (Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround)); 
+            //&& (body.velocity.y == 0.0f));
 
     	moveInput = Input.GetAxisRaw("Horizontal");
         animator.SetFloat("Speed", Mathf.Abs(moveInput));

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Combat : MonoBehaviour
 {
@@ -27,8 +28,9 @@ public class Combat : MonoBehaviour
     public GameObject thunderboltPrefab;
 
     //Makes sure player can't stunlock enemies to death that easily
-    public float attackRate = 0.1f;
-    float nextAttack = 0f;
+    public float attackCooldown;
+    private float attackTimer;
+    private bool canAttack;
 
     //Used to get access to PlayerController variables
     private GameObject thePlayer;
@@ -41,13 +43,44 @@ public class Combat : MonoBehaviour
     public AudioClip damageAudio;
     public AudioSource audioSrc;
 
+    //Bolt ammo variables
+    public GameObject boltCoolDownBar;
+    public float ammoCooldown;
+    private int boltAmmo;
+    private bool hasAmmo;
+    private float boltTimer;
+
+    //EXPERIMENTAL: Stamina counter to determine number of attacks
+    //Stamina should recover as long as the player has less than 100 stamina AND has waited a certain amount of time after attacking
+    //Player should not be able to attack if they have no stamina
+    //public float combatStamina; //Amount of stamina
+    //public float staminaTimer; //Waits between attacks before regenerating
+    //public bool hasStamina; //Does the player have stamina?
+    //public bool isRecovering; //Checks to see if player is recovering stamina
+	  // Start is called before the first frame update
     void Start()
     {
         hud = HUDObject.GetComponent<HUD>();
 
         thePlayer = GameObject.Find("Player");
         playerController = thePlayer.GetComponent<PlayerController>();
+
         audioSrc = GetComponent<AudioSource>();
+
+        attackTimer = attackCooldown;
+        canAttack = true;
+
+        boltAmmo = 6;
+        hasAmmo = true;
+        boltTimer = ammoCooldown;
+
+        boltCoolDownBar.SetActive(false);
+
+        //EXPERIMENTAL
+        //combatStamina = 100.0f;
+        //staminaTimer = 0.0f;
+        //isRecovering = false;
+        //hasStamina = true;
     }
 
     void Awake()
@@ -58,42 +91,85 @@ public class Combat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+    	//Function for checking ammo
+    	if(boltAmmo <= 0)
+    	{
+    		hasAmmo = false;
+    		boltAmmoCooldown();
+    	}
+
         //Checks to see if player is grounded or not based on PlayerController script
         combatGround = playerController.isGrounded;
 
         //Only register attacks after a certain amount of time has passed between attacks
-        if (Time.time >= nextAttack)
+        if(canAttack == false)
         {
-            //Melee is left mouse click
-            if (Input.GetKeyDown(KeyCode.Mouse0))
-            {
-                if (combatGround == true) { playerController.speed = 0f; } //If player is on the ground, stop moving
-                playAnimation();
-                nextAttack = Time.time + 1f / attackRate;
-            }
-
-            //Ranged is right mouse click
-            if (Input.GetKeyDown(KeyCode.Mouse1))
-            {
-                if (combatGround == true) { playerController.speed = 0f; } //If player is on the ground, stop moving
-                playShoot();
-                nextAttack = Time.time + 1f / attackRate;
-            }
-
-            //TESTING: Used for thunderbolt
-            /*
-            if (Input.GetKeyDown(KeyCode.T))
-            {
-                if (combatGround == true) { playerController.speed = 0f; }
-                playThunderbolt();
-                nextAttack = Time.time + 1f / attackRate;
-            }
-            */
+            attackCooldownCheck();
         }
+
+        //Melee is left mouse click
+        if (Input.GetKeyDown(KeyCode.Mouse0) && canAttack)
+        {
+            canAttack = false;
+            if (combatGround == true) { playerController.speed = 0f; } //If player is on the ground, stop moving
+            playAnimation();
+        }
+
+        //Ranged is right mouse click
+        if (Input.GetKeyDown(KeyCode.Mouse1) && hasAmmo && canAttack)
+        {
+            canAttack = false;
+            HUDObject.SendMessage("onCrossbow");
+        	boltAmmo--;
+            if (combatGround == true) { playerController.speed = 0f; } //If player is on the ground, stop moving
+            playShoot();
+        }
+
+        //TESTING: Used for thunderbolt
+        /*
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            if (combatGround == true) { playerController.speed = 0f; }
+            playThunderbolt();
+            nextAttack = Time.time + 1f / attackRate;
+        }
+        */
 
         if(currentHealth <= 0)
         {
         	playerAnim.SetBool("IsDead", true);	
+        }
+    }
+
+    void attackCooldownCheck()
+    {
+        attackTimer -= Time.deltaTime;
+
+        if(attackTimer <= 0)
+        {
+            canAttack = true;
+            attackTimer = attackCooldown;
+        }
+    }
+
+    void boltAmmoCooldown()
+    {
+    	if(boltTimer <= 0)
+    	{
+    		boltAmmo = 6;
+    		hasAmmo = true;
+    		boltTimer = ammoCooldown;
+            HUDObject.SendMessage("showAllAmmo");
+            boltCoolDownBar.GetComponent<Image>().fillAmount = 1;
+            //boltCoolDownBar.GetComponent<Image>().enabled = false;
+            boltCoolDownBar.SetActive(false);
+    	} 
+        else 
+        {
+            boltTimer -= Time.deltaTime;
+            boltCoolDownBar.GetComponent<Image>().fillAmount = boltTimer / ammoCooldown;
+            //boltCoolDownBar.GetComponent<Image>().enabled = true;
+            boltCoolDownBar.SetActive(true);
         }
     }
 
@@ -128,7 +204,7 @@ public class Combat : MonoBehaviour
     {
         if (combatGround == true) { playerController.speed = 0f; }
         playThunderbolt();
-        nextAttack = Time.time + 1f / attackRate;
+        canAttack = false;
     }
 
     //Melee attack

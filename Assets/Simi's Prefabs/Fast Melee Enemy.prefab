@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 487803451362881529}
   - component: {fileID: 487803451362881528}
-  - component: {fileID: 847193719}
+  - component: {fileID: 9100276649307841224}
   m_Layer: 9
   m_Name: fastMelee_hitbox
   m_TagString: Untagged
@@ -58,7 +58,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.24156994, y: 0.23937058}
   m_EdgeRadius: 0
---- !u!114 &847193719
+--- !u!114 &9100276649307841224
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -280,6 +280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 487803451390852922}
+  enemyObject: {fileID: 487803451390852923}
   maxHealth: 100
   hit: {fileID: 8300000, guid: b4fcfcb19af7f4457b220e12d3489c5a, type: 3}
   death: {fileID: 8300000, guid: 4ef10e338ceabe94cac6522d46fcc445, type: 3}

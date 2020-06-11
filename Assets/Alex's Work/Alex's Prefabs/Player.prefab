@@ -350,11 +350,14 @@ MonoBehaviour:
     type: 3}
   thunderboltPrefab: {fileID: 2277486037170313039, guid: 3664494669124e74f9ac4447471610b6,
     type: 3}
-  attackRate: 2
   swordAudio: {fileID: 8300000, guid: c7865fd595be8a046a018f3e24771dd6, type: 3}
   crossbowAudio: {fileID: 8300000, guid: 2bc8225a23eb945578cfd49d8ba0dd67, type: 3}
   damageAudio: {fileID: 8300000, guid: b4fcfcb19af7f4457b220e12d3489c5a, type: 3}
   audioSrc: {fileID: 121416202}
+  attackCooldown: 0
+  boltCoolDownBar: {fileID: 8922459149746937761, guid: 38696826377206245acd441c90a7178a,
+    type: 3}
+  ammoCooldown: 0
 --- !u!58 &6044520876765588319
 CircleCollider2D:
   m_ObjectHideFlags: 0

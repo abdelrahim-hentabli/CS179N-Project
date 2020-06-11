@@ -5,9 +5,13 @@ using UnityEngine;
 public class Flying_Skull_Damage : MonoBehaviour
 {
     public Animator enemy;
-
+    public GameObject enemyObject;
     public int maxHealth = 100;
-    int currentHealth;
+    
+    private Flying_Skull_AI skullScript;
+    private int currentHealth;
+    private float stunTimer;
+    private bool stunned = false;
 
     private Animator anim;
 
@@ -20,7 +24,27 @@ public class Flying_Skull_Damage : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         currentHealth = maxHealth;
+
         audioSrc = GetComponent<AudioSource>();
+
+        stunTimer = 0;
+        skullScript = enemyObject.GetComponent<Flying_Skull_AI>();
+    }
+
+    void Update()
+    {
+        //If enemy is stunned, do this
+        if (stunned)
+        {
+            stunTimer += Time.deltaTime;
+
+            if (stunTimer >= 0.2f)
+            {
+                stunned = false;
+                stunTimer = 0;
+                skullScript.moveSpeed = 0.5f;
+            }
+        }
     }
 
     public void takeDamage(int damage)
@@ -47,8 +71,8 @@ public class Flying_Skull_Damage : MonoBehaviour
         else
         {
             anim.SetTrigger("Hit");
-            //moveSpeed = 0;
-            //isStunned = true;     
+            skullScript.moveSpeed = 0;
+            stunned = true;     
         }
     }
 

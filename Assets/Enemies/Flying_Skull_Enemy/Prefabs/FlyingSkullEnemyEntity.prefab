@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 7943722299633059247}
+  enemyObject: {fileID: 7943722299633059246}
   maxHealth: 100
   hitSound: {fileID: 8300000, guid: b4fcfcb19af7f4457b220e12d3489c5a, type: 3}
   deathSound: {fileID: 8300000, guid: 1682be7bc3123409d91a7dcea2cd1f29, type: 3}
