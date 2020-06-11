@@ -278,4 +278,13 @@ public class HUD : MonoBehaviour
             quickItemAmount.text = itemAmount[currentQuickItem].ToString();
         }
     }
+
+    public void giveScrollItem()
+    {
+        itemAmount[1]++;
+        if (currentQuickItem == 1)
+        {
+            quickItemAmount.text = itemAmount[currentQuickItem].ToString();
+        }
+    }
 }

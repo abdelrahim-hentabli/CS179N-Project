@@ -5,7 +5,7 @@ using UnityEngine;
 public class scroll_item : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D other) {
 		if(other.gameObject.CompareTag("Player")) {
-            //other.SendMessage("giveBuffItem");
+            other.SendMessage("giveScrollItem");
             Pickup();
 		}
 

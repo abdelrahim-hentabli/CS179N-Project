@@ -287,6 +287,12 @@ public class Combat : MonoBehaviour
         
     }
 
+    public void giveScrollItem()
+    {
+        hud.giveScrollItem();
+
+    }
+
     public void throwBomb()
     {
         Instantiate(bombPrefab, bombPoint.position, bombPoint.rotation);
