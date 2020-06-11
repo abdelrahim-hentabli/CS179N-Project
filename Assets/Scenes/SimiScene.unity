@@ -9767,6 +9767,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1008564995, guid: 66e7fda88770c1e4e9592a2ec3f20e21, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: b76357a42d03a4722afcba74c3073136, type: 3}
+    - target: {fileID: 1008564995, guid: 66e7fda88770c1e4e9592a2ec3f20e21, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1008564995, guid: 66e7fda88770c1e4e9592a2ec3f20e21, type: 3}
+      propertyPath: Priority
+      value: 43
+      objectReference: {fileID: 0}
     - target: {fileID: 487803451390852900, guid: 66e7fda88770c1e4e9592a2ec3f20e21,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9834,9 +9846,14 @@ PrefabInstance:
       objectReference: {fileID: 1467581757}
     - target: {fileID: 487803451390852903, guid: 66e7fda88770c1e4e9592a2ec3f20e21,
         type: 3}
-      propertyPath: attackDistance
-      value: 1.2
-      objectReference: {fileID: 0}
+      propertyPath: audioSrc
+      value: 
+      objectReference: {fileID: 1008564995}
+    - target: {fileID: 487803451390852903, guid: 66e7fda88770c1e4e9592a2ec3f20e21,
+        type: 3}
+      propertyPath: attackSound
+      value: 
+      objectReference: {fileID: 8300000, guid: b76357a42d03a4722afcba74c3073136, type: 3}
     - target: {fileID: 487803451390852923, guid: 66e7fda88770c1e4e9592a2ec3f20e21,
         type: 3}
       propertyPath: m_Name
@@ -17636,25 +17653,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 39
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &847193717 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 487803451362881534, guid: 66e7fda88770c1e4e9592a2ec3f20e21,
-    type: 3}
-  m_PrefabInstance: {fileID: 282328827}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &847193719
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 847193717}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c918775e5b600c439da3e618371e9bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxDamage: 20
 --- !u!1 &881663580
 GameObject:
   m_ObjectHideFlags: 0
@@ -18354,6 +18352,12 @@ Transform:
 --- !u!1 &1008564986 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 487803451390852923, guid: 66e7fda88770c1e4e9592a2ec3f20e21,
+    type: 3}
+  m_PrefabInstance: {fileID: 282328827}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1008564995 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1008564995, guid: 66e7fda88770c1e4e9592a2ec3f20e21,
     type: 3}
   m_PrefabInstance: {fileID: 282328827}
   m_PrefabAsset: {fileID: 0}
@@ -36704,11 +36708,6 @@ PrefabInstance:
       propertyPath: HUDObject
       value: 
       objectReference: {fileID: 1669936801}
-    - target: {fileID: 6044520876765588318, guid: b975c62f19fbbc740aa8a91087df26ce,
-        type: 3}
-      propertyPath: crossbowAudio
-      value: 
-      objectReference: {fileID: 8300000, guid: 2bc8225a23eb945578cfd49d8ba0dd67, type: 3}
     - target: {fileID: 6044520876765588326, guid: b975c62f19fbbc740aa8a91087df26ce,
         type: 3}
       propertyPath: m_Name
