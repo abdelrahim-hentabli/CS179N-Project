@@ -26,6 +26,7 @@ public class BossBehavior : MonoBehaviour
     public AudioClip deathSound2;
     public AudioClip attackSound;
     public AudioSource audioSrc;
+    public float attackTimer;
 
     public float hitCounter = 0.0f;
     #endregion
@@ -57,10 +58,14 @@ public class BossBehavior : MonoBehaviour
     {
         currentHealth = maxHealth;
         audioSrc = GetComponent<AudioSource>();
+        attackTimer = 0.0f;
     }
 
     void Update()
     {
+        //Determines when the boss can attack
+        attackTimer += Time.deltaTime;
+
         //Next two if statements only for patrolling enemies
         if (!attackMode)
         {
@@ -82,7 +87,7 @@ public class BossBehavior : MonoBehaviour
         {
             stunTimer += Time.deltaTime;
 
-            if (stunTimer >= 0.5f)
+            if (stunTimer >= 2f)
             {
                 stunned = false;
                 stunTimer = 0;
@@ -101,7 +106,7 @@ public class BossBehavior : MonoBehaviour
             StopAttack();
         }
 
-        else if (attackDistance >= distance && cooling == false)
+        else if (attackDistance >= distance && cooling == false && attackTimer >= 3.0f && stunned == false)
         {
             Attack();
         }
@@ -126,12 +131,13 @@ public class BossBehavior : MonoBehaviour
 
     void Attack()
     {
-        audioSrc.PlayDelayed(0.43f);
+        audioSrc.PlayDelayed(1f);
         timer = intTimer; //reset timer when player enters attack range
         attackMode = true; //to check if enemy can still attack or nah
 
         anim.SetBool("canWalk", false);
         anim.SetBool("Attack", true);
+        attackTimer = 0.0f;
     }
 
     void Cooldown()
