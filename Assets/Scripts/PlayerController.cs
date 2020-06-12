@@ -57,6 +57,7 @@ public class PlayerController : MonoBehaviour
         Vector3 cameraPosition = transform.position;
         cameraPosition.z = mainCamera.transform.position.z;
         mainCamera.transform.position = cameraPosition;
+        save();
     }
 
     // Update is called once per frame
