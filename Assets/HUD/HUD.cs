@@ -296,5 +296,10 @@ public class HUD : MonoBehaviour
             quickItemAmount.text = itemAmount[currentQuickItem].ToString();
         }
     }
+    public void MainMenu()
+    {
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene("MainMenu");
+    }
 
 }
