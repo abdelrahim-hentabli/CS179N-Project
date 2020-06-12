@@ -11536,7 +11536,7 @@ GameObject:
   - component: {fileID: 458090520}
   m_Layer: 10
   m_Name: Hidden_Room_Stairs
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22776,7 +22776,7 @@ GameObject:
   - component: {fileID: 1377864579}
   m_Layer: 10
   m_Name: Hidden_Room_Stairs (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

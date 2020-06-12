@@ -4014,6 +4014,11 @@ PrefabInstance:
       propertyPath: ammoCooldown
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 6044520876765588318, guid: b975c62f19fbbc740aa8a91087df26ce,
+        type: 3}
+      propertyPath: attackCooldown
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6044520876765588326, guid: b975c62f19fbbc740aa8a91087df26ce,
         type: 3}
       propertyPath: m_Name
@@ -7134,7 +7139,7 @@ GameObject:
   - component: {fileID: 2128418946}
   - component: {fileID: 2128418945}
   - component: {fileID: 2128418944}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LowerRightPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
