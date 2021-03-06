@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class boss_door : MonoBehaviour {
 
@@ -15,6 +16,7 @@ public class boss_door : MonoBehaviour {
     	GetComponent<SpriteRenderer>().enabled = false;
 		GetComponent<Collider2D>().enabled = false;
     	Destroy(gameObject);
+		SceneManager.LoadScene(sceneName:"BossScene");
     }
 
 }
